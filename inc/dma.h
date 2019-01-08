@@ -1,25 +1,42 @@
 /*
- * initStmDev.h
+ * dma.h
  *
- *  Created on: 27.11.2018
+ *  Created on: 08.01.2019
  *      Author: Daniel
  */
 
-#ifndef INIT_DEV_H_
-#define INIT_DEV_H_
+#ifndef DMA_H_
+#define DMA_H_
 
 /* Includes ------------------------------------------------------------------*/
-#include <stmeval_led.h>
-#include "flash.h"
-#include "rcc.h"
+#include "stm32f4xx.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define SYS_TICK_DELAY 1000
+/* DMA1 preemption priority */
+#ifndef DMA1_NVIC_PREEMPTION_PRIORITY
+#define DMA1_NVIC_PREEMPTION_PRIORITY   0x01
+#endif
+
+/* DMA2 preemption priority */
+#ifndef DMA2_NVIC_PREEMPTION_PRIORITY
+#define DMA2_NVIC_PREEMPTION_PRIORITY   0x01
+#endif
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
-void DEV_init(void);
 /* Private functions ---------------------------------------------------------*/
 
-#endif /* INIT_DEV_H_ */
+/*
+ * Initializes the DMA Streams.
+ * @warning none
+ * @param	none
+ * @return 	none
+ */
+void DMA_init(void);
+
+
+void DMA_deinit(void);
+
+
+#endif /* DMA_H_ */

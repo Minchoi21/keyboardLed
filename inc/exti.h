@@ -24,7 +24,17 @@ typedef enum
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
+
+/*
+ * Initializes the EXTI peripheral according to the specified parameters send to the function.
+ * @warning none
+ * @param	uint16_t EXTI_Line - which EXTI line to connect (in this case the same as GPIO_pin)
+ * 			EXTITrigger_TypeDef trigger - defines which edge triggers an interrupt
+ * @return 	none
+ */
 void EXTI_init(uint16_t EXTI_line, EXTITrigger_TypeDef trigger);
-void EXTI_DeInit(void);
+
+
+void EXTI_deinit(void);
 
 #endif /* EXTI_H_ */

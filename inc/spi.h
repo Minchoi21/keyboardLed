@@ -75,7 +75,6 @@ typedef enum {
 /* Private functions ---------------------------------------------------------*/
 
 /*!
- * @fcn SPI_init
  * @brief  Initializes SPIx peripheral with default settings.
  * Master mode, 8 data bits, clock polarity low, data sampled at first edge,
  * prescaler set to 32, firstbit MSB, software SS pin configure, direction is full duplex 3 wires
@@ -87,7 +86,6 @@ typedef enum {
 void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack);
 
 /*!
- * @fcn SPI_initPinsPack
  * @brief  Initializes SPIx pins.
  * @warning none
  * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3
@@ -96,23 +94,21 @@ void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack);
  */
 void SPI_initPinsPack(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack);
 /*!
- * @fcn SPI_txData8bit
  * @brief Writes multiple bytes over SPI
  * @warning none
  * @param  	*SPIx: pointer to SPIx peripheral you will use, where x is between 1 to 3
- * @param  	*pData: 8-bit data size to send over SPI
- * @param	size: number of bytes to send/receive over SPI
+ * @param  	*pData: pointer to data where DMA will take data to sent over SPI
+ * @param	size: number of bytes to send over SPI
  * @return 	none
  */
 void SPI_txData8bit(SPI_TypeDef* SPIx, uint8_t* pData, uint32_t size);
 
 /*!
- * @fcn SPI_txData16bit
  * @brief Writes multiple bytes over SPI
  * @warning none
  * @param  	*SPIx: pointer to SPIx peripheral you will use, where x is between 1 to 3
  * @param  	*pData: 16-bit data size to send over SPI
- * @param	size: number of bytes to send/receive over SPI
+ * @param	size: number of bytes to send over SPI
  * @return 	none
  */
 void SPI_txData16bit(SPI_TypeDef* SPIx, uint16_t* pData, uint32_t size);

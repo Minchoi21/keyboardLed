@@ -23,14 +23,17 @@ void NVIC_init(void)
 
 /* EXTI */
 	/* Set the EXTI Interrupt to the lowest priority */
-	NVIC_SetPriority(EXTI0_IRQn,0);
+	NVIC_SetPriority(EXTI0_IRQn,0x00);
 	/* Clear the pending bit */
 	NVIC_ClearPendingIRQ(EXTI0_IRQn);
 	/* Enable Interrupt on EXTI Line0 */
 	NVIC_EnableIRQ(EXTI0_IRQn);
 
 /* DMA SPI2 */
-	NVIC_SetPriority(DMA1_Stream4_IRQn, 0);
+	NVIC_SetPriority(DMA1_Stream4_IRQn, 0x01);
+	/* Clear the pending bit */
+	NVIC_ClearPendingIRQ(DMA1_Stream4_IRQn);
+	/* Enable Interrupt on DMA1 Stream4 */
 	NVIC_EnableIRQ(DMA1_Stream4_IRQn);
 
 

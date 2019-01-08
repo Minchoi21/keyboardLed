@@ -16,11 +16,6 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-/*
- * Initializes the EXTI peripheral according to the specified parameters send to the function.
- * param:	uint16_t EXTI_Line - which EXTI line to connect (in this case the same as GPIO_pin)
- * 			EXTITrigger_TypeDef trigger - defines which edge triggers an interrupt
- * */
 void EXTI_init(uint16_t EXTI_line, EXTITrigger_TypeDef trigger)
 {
 
@@ -59,7 +54,7 @@ void EXTI_init(uint16_t EXTI_line, EXTITrigger_TypeDef trigger)
 }
 
 /* Deinitializes the EXTI peripheral registers to their default reset values. */
-void EXTI_DeInit(void)
+void EXTI_deinit(void)
 {
   EXTI->IMR = 0x00000000;
   EXTI->EMR = 0x00000000;

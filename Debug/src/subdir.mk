@@ -4,14 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/dma.c \
 ../src/exti.c \
 ../src/flash.c \
 ../src/gpio.c \
-../src/init_dev.c \
 ../src/main.c \
 ../src/nvic.c \
 ../src/rcc.c \
 ../src/spi.c \
+../src/spi_dma.c \
 ../src/stm32f4xx_it.c \
 ../src/stmeval_led.c \
 ../src/syscalls.c \
@@ -20,14 +21,15 @@ C_SRCS += \
 ../src/tlc5971.c 
 
 OBJS += \
+./src/dma.o \
 ./src/exti.o \
 ./src/flash.o \
 ./src/gpio.o \
-./src/init_dev.o \
 ./src/main.o \
 ./src/nvic.o \
 ./src/rcc.o \
 ./src/spi.o \
+./src/spi_dma.o \
 ./src/stm32f4xx_it.o \
 ./src/stmeval_led.o \
 ./src/syscalls.o \
@@ -36,14 +38,15 @@ OBJS += \
 ./src/tlc5971.o 
 
 C_DEPS += \
+./src/dma.d \
 ./src/exti.d \
 ./src/flash.d \
 ./src/gpio.d \
-./src/init_dev.d \
 ./src/main.d \
 ./src/nvic.d \
 ./src/rcc.d \
 ./src/spi.d \
+./src/spi_dma.d \
 ./src/stm32f4xx_it.d \
 ./src/stmeval_led.d \
 ./src/syscalls.d \

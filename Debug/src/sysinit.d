@@ -13,6 +13,9 @@ src/sysinit.o: ../src/sysinit.c \
  /home/oem/workspace/LED_Keyboard/inc/exti.h \
  /home/oem/workspace/LED_Keyboard/inc/spi.h \
  /home/oem/workspace/LED_Keyboard/inc/tlc5971.h \
+ /home/oem/workspace/LED_Keyboard/inc/spi_dma.h \
+ /home/oem/workspace/LED_Keyboard/inc/def.h \
+ /home/oem/workspace/LED_Keyboard/inc/dma.h \
  /home/oem/workspace/LED_Keyboard/inc/flash.h \
  /home/oem/workspace/LED_Keyboard/inc/rcc.h \
  /home/oem/workspace/LED_Keyboard/inc/nvic.h
@@ -44,6 +47,12 @@ src/sysinit.o: ../src/sysinit.c \
 /home/oem/workspace/LED_Keyboard/inc/spi.h:
 
 /home/oem/workspace/LED_Keyboard/inc/tlc5971.h:
+
+/home/oem/workspace/LED_Keyboard/inc/spi_dma.h:
+
+/home/oem/workspace/LED_Keyboard/inc/def.h:
+
+/home/oem/workspace/LED_Keyboard/inc/dma.h:
 
 /home/oem/workspace/LED_Keyboard/inc/flash.h:
 
