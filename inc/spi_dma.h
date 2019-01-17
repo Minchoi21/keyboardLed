@@ -21,7 +21,7 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-/*
+/*!
  * @brief  	Transmit data over SPI using DMA.
  * @warning none
  * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3

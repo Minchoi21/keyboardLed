@@ -27,15 +27,20 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-/*
- * Initializes the DMA Streams.
+/*!
+ * @brief  Initializes the selected DMA Streams.
  * @warning none
  * @param	none
  * @return 	none
  */
 void DMA_init(void);
 
-
+/*!
+ * @brief  Deinitializes the selected DMA Streams
+ * @warning none
+ * @param  	none
+ * @return 	none
+ */
 void DMA_deinit(void);
 
 

@@ -9,48 +9,51 @@
 #define TLC5971_H_
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx.h"
+#include "def.h"
 #include "spi.h"
 #include "spi_dma.h"
-#include <math.h>
+
 
 /* Private define ------------------------------------------------------------*/
 /******************** Channel Bit definition for LED Driver  ********************/
-#define LED_CH_NU1                          	0x0001U       /*!<Led not used */
-#define LED_CH_NU2                          	0x0002U       /*!<Led not used */
-#define LED_CH_NU3                          	0x0004U       /*!<Led not used */
-#define LED_CH_SI                        		0x0008U       /*!<Led first series */
-#define LED_CH_LS                         		0x0010U       /*!<Led length series */
-#define LED_CH_PWR                          	0x0020U       /*!<Led power voltage */
-#define LED_CH_SII                          	0x0040U       /*!<Led second series */
-#define LED_CH_SIII                          	0x0080U       /*!<Led third series */
-#define LED_CH_SIV                          	0x0100U       /*!<Led fourth series */
-#define LED_CH_SM                          		0x0200U       /*!<Led serial mode */
-#define LED_CH_CM                          		0x0400U       /*!<Led continuous mode */
-#define LED_CH_MOD                          	0x0800U       /*!<Led fire mode */
+//#define LED_CH_1                          	0x0001       /*!<Led channel 1 */
+//#define LED_CH_2                          	0x0002       /*!<Led channel 2 */
+//#define LED_CH_3                          	0x0004       /*!<Led channel 3 */
+//#define LED_CH_4                        	0x0008       /*!<Led channel 4 */
+//#define LED_CH_5                         	0x0010       /*!<Led channel 5 */
+//#define LED_CH_6	                       	0x0020       /*!<Led channel 6 */
+//#define LED_CH_7                       		0x0040       /*!<Led channel 7 */
+//#define LED_CH_8                          	0x0080       /*!<Led channel 8 */
+//#define LED_CH_9                          	0x0100       /*!<Led channel 9 */
+//#define LED_CH_10                         	0x0200       /*!<Led channel 10 */
+//#define LED_CH_11                        	0x0400       /*!<Led not used */
+//#define LED_CH_12                        	0x0800       /*!<Led not used */
 
-#define LED_CLR_ALL_MASK						0x0000U
-#define LED_SET_ALL_MASK						0x0FFFU
-#define LED_SERIES_MASK							( 0x0008U + 0x0040U + 0x0080U + 0x0100U )
-#define LED_MODE_MASK							( 0x0200U + 0x0400U )
+#define LED_CLR_ALL_MASK					0x0000U
+#define LED_SET_ALL_MASK					0x0FFCU
+#define LED_SERIES_MASK						( 0x0008U + 0x0040U + 0x0080U + 0x0100U )
+#define LED_MODE_MASK						( 0x0200U + 0x0400U )
 
-#define TLC5971_NUM_LED 						12			// number of Channel OUTxx
-#define TLC5971_PAC_LEN							28			// the length of the message sent to the TLC5971 using SPI
+#define TLC5971_NUM_LED 					4			// number of led's connected to the single TLC5971 drivers on the keyboard
+#define TLC5971_NUM_DRIVERS					3			// number of TLC5971 drivers on the keyboard
+#define TLC5971_ALL_NUM_LED 				12			// number of led's connected to the all TLC5971 drivers on the keyboard
+#define TLC5971_PAC_LEN						28			// length of the message sent to the single TLC5971 using SPI
+#define TLC5971_ALL_PAC_LEN					84			// length of the message sent to the three TLC5971 using SPI (three drivers on the keyboard)
 
-#define TLC5971_SET_LED(led)					TLC5971_set_led(led)
-#define TLC5971_CLR_LED(led)					TLC5971_clr_led(led)
-
-#define TLC5971_SET_LED_ALL()					TLC5971_set_led_all()
-#define TLC5971_CLR_LED_ALL()					TLC5971_clr_led_all()
-
-#define TLC5971_SEND_PACKET(spix)				TLC5971_send_packet(spix)
-
-
-//#define TLC5971_SPI_CLK_L				(GPIOA->ODR &= ~GPIO_ODR_ODR_5)
-//#define TLC5971_SPI_CLK_H				(GPIOA->ODR |= GPIO_ODR_ODR_5)
+//#define TLC5971_SET_LED(led)				TLC5971_set_led(led)
+//#define TLC5971_CLR_LED(led)				TLC5971_clr_led(led)
 //
-//#define TLC5971_SPI_D_L				(GPIOA->ODR &= ~GPIO_ODR_ODR_7)
-//#define TLC5971_SPI_D_H				(GPIOA->ODR |= GPIO_ODR_ODR_7)
+//#define TLC5971_SET_LED_ALL()				TLC5971_set_led_all()
+//#define TLC5971_CLR_LED_ALL()				TLC5971_clr_led_all()
+//
+//#define TLC5971_SEND_PACKET(spix)			TLC5971_send_packet(spix)
+
+
+//#define TLC5971_SPI_CLK_L					(GPIOA->ODR &= ~GPIO_ODR_ODR_5)
+//#define TLC5971_SPI_CLK_H					(GPIOA->ODR |= GPIO_ODR_ODR_5)
+//
+//#define TLC5971_SPI_D_L					(GPIOA->ODR &= ~GPIO_ODR_ODR_7)
+//#define TLC5971_SPI_D_H					(GPIOA->ODR |= GPIO_ODR_ODR_7)
 
 /* Private typedef -----------------------------------------------------------*/
 typedef enum {
@@ -67,6 +70,24 @@ typedef enum {
 	TLC5971_OutG3,
 	TLC5971_OutB3
 } en_TLC5971_Channel_t;
+
+/**
+ * @brief  Channel Bit definition for LED Driver
+ */
+typedef enum {
+	LED_CH_12 = 0x0001U,       /*! Led not used */
+	LED_CH_11 = 0x0002U,       /*! Led not used */
+	LED_CH_10 = 0x0004U,       /*! Led channel 10 */
+	LED_CH_9 =	0x0008U,       /*! Led channel 9 */
+	LED_CH_8 =	0x0010U,       /*! Led channel 8 */
+	LED_CH_7 =	0x0020U,       /*! Led channel 7 */
+	LED_CH_6 = 	0x0040U,       /*! Led channel 6 */
+	LED_CH_5 =	0x0080U,       /*! Led channel 5 */
+	LED_CH_4 =	0x0100U,       /*! Led channel 4 */
+	LED_CH_3 =	0x0200U,       /*! Led channel 3 */
+	LED_CH_2 =	0x0400U,       /*! Led channel 2 */
+	LED_CH_1 =	0x0800U,       /*! Led channel 1 */
+} en_TLC5971_led_t;
 
 /* 224-Bit Data Packet Configuration */
 // sends the LEDs data
@@ -92,14 +113,21 @@ typedef enum {
 //  100101      10010      1111111     1111111     1111111     Channel_1    Channel_2    Channel_3     Channel_4-9    Channel_10   Channel_11   Channel_12
 //	10010110      01011111		 11111111		11111111
 
+typedef struct TLC5971_rgbled {
+	union value_short GS_blue;   	// value of blue color. Takes values from 0 - 65535.
+	union value_short GS_green;   	// value of green color. Takes values from 0 - 65535.
+	union value_short GS_red;   	// value of red color. Takes values from 0 - 65535.
+
+}st_TLC5971_rgb_led_t;
+
 typedef struct TLC5971_pac {
 uint8_t CF[4];					// 32 bits driver configuration
-uint16_t GS[TLC5971_NUM_LED];   // 12 -> number of channels. Takes values from 0 - 65535
+st_TLC5971_rgb_led_t rgb_led[TLC5971_NUM_LED];   // TLC5971_NUM_LED -> number of led's on single drivers
 }st_tlc5971_pac_t;
 
 
 typedef struct TLC5971 {
-st_tlc5971_pac_t PAC;	// LED data packet configuration
+st_tlc5971_pac_t PAC[TLC5971_NUM_DRIVERS];	// LED data packet configuration
 uint16_t LDS;			// LED data status
 uint16_t luminosity;	// LED brightness
 } st_tlc5971_t;
@@ -112,12 +140,52 @@ uint16_t luminosity;	// LED brightness
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
+
+/*!
+ * @brief	Set the initial value in st_tlc5971_t structure for LED driver TLC5971
+ * @note
+ * @warning none
+ * @param  	none
+ * @return 	none
+ */
 void TLC5971_init( void );
-void TLC5971_set_led( uint16_t led );
+
+/*!
+ * @brief	Set LED's to light up.
+ * @warning none
+ * @param  	en_TLC5971_led_t led  -> the number's of the diode to turn on. This parameter can be a value of @ref en_TLC5971_led_t enumeration
+ * @return 	none
+ */
+void TLC5971_set_led( en_TLC5971_led_t led );
+
+/*!
+ * @brief	Set LED's to light off.
+ * @warning none
+ * @param  	en_TLC5971_led_t led  -> the number's of the diode to turn off. This parameter can be a value of @ref en_TLC5971_led_t enumeration
+ * @return 	none
+ */
+void TLC5971_clr_led( en_TLC5971_led_t led );
+
+/*!
+ * @brief	Set all LED's to light up.
+ * @warning none
+ * @param  	none
+ * @return 	none
+ */
 void TLC5971_set_led_all( void );
-void TLC5971_clr_led( uint16_t led );
+
+/*!
+ * @brief	Set all LED's to light off.
+ * @warning none
+ * @param  	none
+ * @return 	none
+ */
 void TLC5971_clr_led_all( void );
+
+
 void TLC5971_set_luminosity( uint16_t lum );
+
+
 void TLC5971_send_packet( SPI_TypeDef* SPIx );
 
 // ----- FUNCTION TO SOFTWARE SPI -------------
