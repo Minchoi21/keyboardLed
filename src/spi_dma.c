@@ -18,8 +18,6 @@
 
 uint8_t SPI_DMA_transmit(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint16_t count) {
 
-	while(SPI_IS_BUSY(SPIx)) {}
-
 	/* Check if DMA available */
 	if (
 		DMA1_Stream4->NDTR ||

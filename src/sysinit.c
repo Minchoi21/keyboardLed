@@ -16,6 +16,8 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 void SYS_init(void) {
+	SysTick_time1_flag = FALSE;
+	SysTick_time2_flag = FALSE;
 	FLASH_init();
 	RCC_initHsePll();
 //	GPIO_enableClock(LED_GPIO_PORT);					/* Enable the GPIOD Clock for handling USER_LEDS */

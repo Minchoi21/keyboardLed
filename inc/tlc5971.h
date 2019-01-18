@@ -182,10 +182,21 @@ void TLC5971_set_led_all( void );
  */
 void TLC5971_clr_led_all( void );
 
-
+/*!
+ * @brief	Set luminosity for all LED's
+ * @warning none
+ * @param  	lum: value of luminosity for each colors. This parameter can be a value form 0 - 65535
+ * @return 	none
+ */
 void TLC5971_set_luminosity( uint16_t lum );
 
-
+/*!
+ * @brief	Send data package to the all TCL5971 drivers by SPIx using DMA
+ * @note
+ * @warning none
+ * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3
+ * @return 	none
+ */
 void TLC5971_send_packet( SPI_TypeDef* SPIx );
 
 // ----- FUNCTION TO SOFTWARE SPI -------------

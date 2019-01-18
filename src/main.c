@@ -30,10 +30,19 @@ void Delay (uint32_t nCount);
 
 int main(void)
 {
+	static uint8_t led = 2;
+
 	SYS_init();
 	STM_EVAL_initBoard();
 	for(;;)
 	{
+		if(SysTick_time2_flag) {
+			SysTick_time2_flag = FALSE;
+			if(led >= (TLC5971_ALL_NUM_LED)) led = 2;
+			TLC5971_clr_led_all();
+			TLC5971_set_led(1<<led++);
+			TLC5971_send_packet(SPI2);
+		}
 	}
 }
 
@@ -70,29 +79,23 @@ void EXTI0_IRQHandler(void) {
     }
 }
 
-
+/* Triggered with 1kHz frequency */
 void SysTick_Handler(void){
-	static uint32_t time = SYS_TICK_DELAY, time2 = SYS_TICK_DELAY_2;
-	static uint8_t pos = 0, led = 2;
-	static uint16_t tab_val[4] = { 128, 255, 3840, 65535};
+	static uint32_t SysTick_time_1 = SYS_TICK_DELAY_1;
+	static uint32_t SysTick_time_2 = SYS_TICK_DELAY_2;
 
-	if(!time){
-		time = SYS_TICK_DELAY;
+	if(!SysTick_time_1){
+		SysTick_time_1 = SYS_TICK_DELAY_1;
+		SysTick_time1_flag = TRUE;
 //		STM_EVAL_ledToggle(GPIOD, GPIO_Pin_12);
 		STM_EVAL_ledToggle(GPIOD, GPIO_Pin_13);
 //		STM_EVAL_ledToggle(GPIOD, GPIO_Pin_14);
 
 	}
-	if(!time2){
-		time2 = SYS_TICK_DELAY_2;
-
-		if(pos >= 4) pos = 0;
-//		TLC5971_set_luminosity(tab_val[pos++]);
-		if(led >= (TLC5971_ALL_NUM_LED)) led = 2;
-		TLC5971_set_led_all();
-		TLC5971_clr_led(1<<led++);
-		TLC5971_send_packet(SPI2);
+	if(!SysTick_time_2){
+		SysTick_time_2 = SYS_TICK_DELAY_2;
+		SysTick_time2_flag = TRUE;
 	}
-	time--;
-	time2--;
+	SysTick_time_1--;
+	SysTick_time_2--;
 }

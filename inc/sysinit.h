@@ -9,17 +9,23 @@
 #define SYSINIT_H_
 
 /* Includes ------------------------------------------------------------------*/
+#include "def.h"
 #include <stmeval_led.h>
 #include "flash.h"
 #include "rcc.h"
 #include "nvic.h"
 
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define SYS_TICK_DELAY 1000
-#define SYS_TICK_DELAY_2 200
+#define SYS_TICK_DELAY_1 1000
+#define SYS_TICK_DELAY_2 800
+
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+BOOL SysTick_time1_flag;
+BOOL SysTick_time2_flag;
+
 /* Private function prototypes -----------------------------------------------*/
 
 /*!

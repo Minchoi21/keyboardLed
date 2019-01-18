@@ -15,6 +15,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 
+typedef enum {
+	FALSE,
+	TRUE
+} BOOL;
+
 union value_short {
 	uint16_t val;
 	uint8_t arr[2];

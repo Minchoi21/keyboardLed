@@ -29,7 +29,21 @@ void NVIC_init(void)
 	/* Enable Interrupt on EXTI Line0 */
 	NVIC_EnableIRQ(EXTI0_IRQn);
 
-/* DMA SPI2 */
+/* DMA SPI1 TX */
+	NVIC_SetPriority(DMA2_Stream3_IRQn, 0x01);
+	/* Clear the pending bit */
+	NVIC_ClearPendingIRQ(DMA2_Stream3_IRQn);
+	/* Enable Interrupt on DMA1 Stream4 */
+	NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+
+/* DMA SPI1 RX */
+	NVIC_SetPriority(DMA2_Stream2_IRQn, 0x01);
+	/* Clear the pending bit */
+	NVIC_ClearPendingIRQ(DMA2_Stream2_IRQn);
+	/* Enable Interrupt on DMA1 Stream4 */
+	NVIC_EnableIRQ(DMA2_Stream2_IRQn);
+
+/* DMA SPI2 TX */
 	NVIC_SetPriority(DMA1_Stream4_IRQn, 0x01);
 	/* Clear the pending bit */
 	NVIC_ClearPendingIRQ(DMA1_Stream4_IRQn);
