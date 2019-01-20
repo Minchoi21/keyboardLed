@@ -71,7 +71,7 @@ typedef enum {
 	TLC5971_OutB3
 } en_TLC5971_Channel_t;
 
-/**
+/*!
  * @brief  Channel Bit definition for LED Driver
  */
 typedef enum {
@@ -151,7 +151,7 @@ uint16_t luminosity;	// LED brightness
 void TLC5971_init( void );
 
 /*!
- * @brief	Set LED's to light up.
+ * @brief	Set LED's to light up
  * @warning none
  * @param  	en_TLC5971_led_t led  -> the number's of the diode to turn on. This parameter can be a value of @ref en_TLC5971_led_t enumeration
  * @return 	none
@@ -160,6 +160,7 @@ void TLC5971_set_led( en_TLC5971_led_t led );
 
 /*!
  * @brief	Set LED's to light off.
+ * @note
  * @warning none
  * @param  	en_TLC5971_led_t led  -> the number's of the diode to turn off. This parameter can be a value of @ref en_TLC5971_led_t enumeration
  * @return 	none
@@ -167,7 +168,8 @@ void TLC5971_set_led( en_TLC5971_led_t led );
 void TLC5971_clr_led( en_TLC5971_led_t led );
 
 /*!
- * @brief	Set all LED's to light up.
+ * @brief	Set all LED's to light up
+ * @note
  * @warning none
  * @param  	none
  * @return 	none
@@ -175,7 +177,8 @@ void TLC5971_clr_led( en_TLC5971_led_t led );
 void TLC5971_set_led_all( void );
 
 /*!
- * @brief	Set all LED's to light off.
+ * @brief	Set all LED's to light off
+ * @note
  * @warning none
  * @param  	none
  * @return 	none
@@ -184,6 +187,7 @@ void TLC5971_clr_led_all( void );
 
 /*!
  * @brief	Set luminosity for all LED's
+ * @note
  * @warning none
  * @param  	lum: value of luminosity for each colors. This parameter can be a value form 0 - 65535
  * @return 	none

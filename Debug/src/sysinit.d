@@ -1,61 +1,61 @@
 src/sysinit.o: ../src/sysinit.c \
- C:/Users/Daniel/workspace/keyboardLed/inc/sysinit.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/def.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f4xx.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f407xx.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cm4.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmInstr.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/cmsis_gcc.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmFunc.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmSimd.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/stmeval_led.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/exti.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/spi.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/tlc5971.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/dma.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/flash.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/nvic.h
+ /home/oem/workspace/LED_Keyboard/inc/sysinit.h \
+ /home/oem/workspace/LED_Keyboard/inc/def.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f4xx.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f407xx.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cm4.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmInstr.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/core/cmsis_gcc.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmFunc.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmSimd.h \
+ /home/oem/workspace/LED_Keyboard/CMSIS/device/system_stm32f4xx.h \
+ /home/oem/workspace/LED_Keyboard/inc/stmeval_led.h \
+ /home/oem/workspace/LED_Keyboard/inc/gpio.h \
+ /home/oem/workspace/LED_Keyboard/inc/exti.h \
+ /home/oem/workspace/LED_Keyboard/inc/spi.h \
+ /home/oem/workspace/LED_Keyboard/inc/tlc5971.h \
+ /home/oem/workspace/LED_Keyboard/inc/spi_dma.h \
+ /home/oem/workspace/LED_Keyboard/inc/dma.h \
+ /home/oem/workspace/LED_Keyboard/inc/flash.h \
+ /home/oem/workspace/LED_Keyboard/inc/rcc.h \
+ /home/oem/workspace/LED_Keyboard/inc/nvic.h
 
-C:/Users/Daniel/workspace/keyboardLed/inc/sysinit.h:
+/home/oem/workspace/LED_Keyboard/inc/sysinit.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/def.h:
+/home/oem/workspace/LED_Keyboard/inc/def.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f4xx.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f4xx.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f407xx.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f407xx.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cm4.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cm4.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmInstr.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmInstr.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/cmsis_gcc.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/core/cmsis_gcc.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmFunc.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmFunc.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmSimd.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmSimd.h:
 
-C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h:
+/home/oem/workspace/LED_Keyboard/CMSIS/device/system_stm32f4xx.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/stmeval_led.h:
+/home/oem/workspace/LED_Keyboard/inc/stmeval_led.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h:
+/home/oem/workspace/LED_Keyboard/inc/gpio.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/exti.h:
+/home/oem/workspace/LED_Keyboard/inc/exti.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/spi.h:
+/home/oem/workspace/LED_Keyboard/inc/spi.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/tlc5971.h:
+/home/oem/workspace/LED_Keyboard/inc/tlc5971.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h:
+/home/oem/workspace/LED_Keyboard/inc/spi_dma.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/dma.h:
+/home/oem/workspace/LED_Keyboard/inc/dma.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/flash.h:
+/home/oem/workspace/LED_Keyboard/inc/flash.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h:
+/home/oem/workspace/LED_Keyboard/inc/rcc.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/nvic.h:
+/home/oem/workspace/LED_Keyboard/inc/nvic.h:

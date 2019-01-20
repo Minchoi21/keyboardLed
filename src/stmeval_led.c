@@ -78,13 +78,17 @@ void STM_EVAL_initBoard(void)
 	STM_EVAL_initAllLeds();
 	STM_EVAL_initButton(USER_BUTTON_GPIO_PORT, USER_BUTTON_PIN);
 
+/* SPI2 */
 	/* Configure SPI2 for TLC5971 Led controller on external Keyboard */
 	SPI_init(SPI2, SPI_PINSPACK_2);
 	TLC5971_init();
 	TLC5971_set_luminosity(3840);
 
+/* SPI1 */
 	/* Configure SPI1 for MAX7301 I/O Expander on external Keyboard */
 	SPI_init(SPI1, SPI_PINSPACK_1);
+	/* Reset PE3 to set low on CS_SPI for LIS3DSH */
+	GPIO_init(GPIOE, GPIO_Pin_3, GPIO_Mode_OUT, GPIO_OType_PP, GPIO_PuPd_UP, GPIO_Speed_Medium);
 	GPIO_resetPin(GPIOE, GPIO_Pin_3);
 }
 
