@@ -21,6 +21,7 @@ SPI3     | DMA1 | DMA Stream 5  | DMA Channel 0  | DMA Stream 0  | DMA Channel 0
 #include "stm32f4xx.h"
 #include "spi.h"
 #include "dma.h"
+#include "rcc.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -30,13 +31,22 @@ SPI3     | DMA1 | DMA Stream 5  | DMA Channel 0  | DMA Stream 0  | DMA Channel 0
 /* Private functions ---------------------------------------------------------*/
 
 /*!
- * @brief  Initializes SPI peripheral DMA
- * @note   This function initializes TX and RX DMA streams for SPIx
- * @note   SPI HAVE TO be previously initialized using @ref SPI library
- * @param  *SPIx: Pointer to SPI peripheral where you want to enable DMA
+ * @brief  Initializes SPI peripheral DMA.
+ * @note   This function initializes TX and RX DMA streams for SPIx.
+ * @note   SPI HAVE TO be previously initialized using @ref SPI library.
+ * @param  *SPIx: Pointer to SPI peripheral where you want to enable DMA.
  * @return none
  */
 void SPI_DMA_init(SPI_TypeDef* SPIx);
+
+
+/*!
+ * @brief  Deinitializes SPI peripheral DMA.
+ * @note   This function deinitializes TX and RX DMA streams for SPIx.
+ * @param  *SPIx: Pointer to SPI peripheral where you want to disable DMA.
+ * @return none
+ */
+void SPI_DMA_deinit(SPI_TypeDef* SPIx)
 
 /*!
  * @brief  	Transmit data over SPI using DMA.

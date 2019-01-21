@@ -117,7 +117,6 @@ typedef struct TLC5971_rgbled {
 	union value_short GS_blue;   	// value of blue color. Takes values from 0 - 65535.
 	union value_short GS_green;   	// value of green color. Takes values from 0 - 65535.
 	union value_short GS_red;   	// value of red color. Takes values from 0 - 65535.
-
 }st_TLC5971_rgb_led_t;
 
 typedef struct TLC5971_pac {

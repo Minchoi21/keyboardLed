@@ -12,57 +12,94 @@
 /* Private typedef -----------------------------------------------------------*/
 
 /* Private define ------------------------------------------------------------*/
+#define GET_STREAM_NUMBER_DMA1(stream)    (((uint32_t)(stream) - (uint32_t)DMA1_Stream0) / (0x18))
+#define GET_STREAM_NUMBER_DMA2(stream)    (((uint32_t)(stream) - (uint32_t)DMA2_Stream0) / (0x18))
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+
+/* Offsets for bits */
+const static uint8_t DMA_Flags_Bit_Pos[4] = {
+	0, 6, 16, 22
+};
+
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-void DMA_init()
+void DMA_clearFlag(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t flag)
+{
+	uint32_t location;
+	uint32_t stream_number;
+
+	/* Check stream value */
+	if (DMAy_Streamx < DMA2_Stream0) {
+		location = (uint32_t)&DMA1->LIFCR;
+		stream_number = GET_STREAM_NUMBER_DMA1(DMAy_Streamx);
+	} else {
+		location = (uint32_t)&DMA2->LIFCR;
+		stream_number = GET_STREAM_NUMBER_DMA2(DMAy_Streamx);
+	}
+
+	/* Get register offset */
+	if (stream_number >= 4) {
+		/* High registers for DMA clear */
+		location += 4;
+
+		/* Do offset for high DMA registers */
+		stream_number -= 4;
+	}
+
+	/* Clear flags */
+	*(__IO uint32_t *)location = (flag & DMA_FLAG_ALL) << DMA_Flags_Bit_Pos[stream_number];
+}
+
+void DMA_init(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t channel)
 {
 
 	/* Disable DMA TX Stream */
-	DMA1_Stream4->CR &= ~((uint32_t)DMA_SxCR_EN);
+	DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_EN);
 
 	/* Set DMA options for TX Stream */
-	DMA1_Stream4->CR &= ~((uint32_t)DMA_SxCR_CHSEL); 			/* Channel0 for SPI DMA TX*/
+	DMAy_Streamx->CR |= channel;
+//	DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_CHSEL); 			/* Channel0 for SPI DMA TX*/
 
 	/* Enable DMA stream interrupts */
-	DMA1_Stream4->CR |= DMA_SxCR_TCIE; //| DMA_SxCR_HTIE | DMA_SxCR_TEIE | DMA_SxCR_DMEIE
-//	DMA1_Stream4->FCR |= DMA_SxFCR_FEIE;
+	DMAy_Streamx->CR |= DMA_SxCR_TCIE | DMA_SxCR_HTIE | DMA_SxCR_TEIE | DMA_SxCR_DMEIE;
+	DMAy_Streamx->FCR |= DMA_SxFCR_FEIE;
 
-	/* Enable SPI2 TX DMA */
-	SPI2->CR2 |= SPI_CR2_TXDMAEN;
 
 //	/* Enable DMA TX stream */
-//	DMA1_Stream4->CR |= DMA_SxCR_EN;
+//	DMAy_Streamx->CR |= DMA_SxCR_EN;
 }
 
 
-void DMA_DeInit(void)
+void DMA_deinit(DMA_Stream_TypeDef* DMAy_Streamx)
 {
 	 /* Disable the selected DMAy Streamx */
-	DMA1_Stream4->CR &= ~((uint32_t)DMA_SxCR_EN);
+	DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_EN);
 
 	  /* Reset DMAy Streamx control register */
-	DMA1_Stream4->CR  = 0;
+	DMAy_Streamx->CR  = 0;
 
 	  /* Reset DMAy Streamx Number of Data to Transfer register */
-	DMA1_Stream4->NDTR = 0;
+	DMAy_Streamx->NDTR = 0;
 
 	  /* Reset DMAy Streamx peripheral address register */
-	DMA1_Stream4->PAR  = 0;
+	DMAy_Streamx->PAR  = 0;
 
 	  /* Reset DMAy Streamx memory 0 address register */
-	DMA1_Stream4->M0AR = 0;
+	DMAy_Streamx->M0AR = 0;
 
 	  /* Reset DMAy Streamx memory 1 address register */
-	DMA1_Stream4->M1AR = 0;
+	DMAy_Streamx->M1AR = 0;
 
 	  /* Reset DMAy Streamx FIFO control register */
-	DMA1_Stream4->FCR = (uint32_t)0x00000021;
+	DMAy_Streamx->FCR = (uint32_t)0x00000021;
 
-    /* Reset interrupt pending bits for DMA1 Stream4 */
-	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
+	/* Reset interrupt pending bits for DMAy_Streamx */
+	DMA_clearFlag(DMAy_Streamx, DMA_FLAG_ALL);
+
+//    /* Reset interrupt pending bits for DMA1 Stream4 */
+//	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
 
 }
 
@@ -131,7 +168,8 @@ static void TM_DMA_INT_ProcessInterrupt(DMA_Stream_TypeDef* DMA_Stream) {
 void DMA1_Stream4_IRQHandler(void) {
 	NVIC_ClearPendingIRQ(DMA1_Stream4_IRQn);
 	/* Clear all flags */
-	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
+	DMA_clearFlag(DMA1_Stream4, DMA_FLAG_ALL);
+//	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
 	/* Call user function */
 	TM_DMA_INT_ProcessInterrupt(DMA1_Stream4);
 

@@ -81,6 +81,7 @@ void STM_EVAL_initBoard(void)
 /* SPI2 */
 	/* Configure SPI2 for TLC5971 Led controller on external Keyboard */
 	SPI_init(SPI2, SPI_PINSPACK_2);
+	SPI_DMA_init(SPI2);
 	TLC5971_init();
 	TLC5971_set_luminosity(3840);
 
