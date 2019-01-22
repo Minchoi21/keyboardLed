@@ -42,6 +42,7 @@ int main(void)
 			TLC5971_clr_led_all();
 			TLC5971_set_led(1<<led++);
 			TLC5971_send_packet(SPI2);
+			TLC5971_send_packet(SPI1);
 		}
 	}
 }

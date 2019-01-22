@@ -86,7 +86,7 @@ typedef enum {
 	LED_CH_4 =	0x0100U,       /*! Led channel 4 */
 	LED_CH_3 =	0x0200U,       /*! Led channel 3 */
 	LED_CH_2 =	0x0400U,       /*! Led channel 2 */
-	LED_CH_1 =	0x0800U,       /*! Led channel 1 */
+	LED_CH_1 =	0x0800U       /*! Led channel 1 */
 } en_TLC5971_led_t;
 
 /* 224-Bit Data Packet Configuration */

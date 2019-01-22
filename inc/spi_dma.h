@@ -46,7 +46,7 @@ void SPI_DMA_init(SPI_TypeDef* SPIx);
  * @param  *SPIx: Pointer to SPI peripheral where you want to disable DMA.
  * @return none
  */
-void SPI_DMA_deinit(SPI_TypeDef* SPIx)
+void SPI_DMA_deinit(SPI_TypeDef* SPIx);
 
 /*!
  * @brief  	Transmit data over SPI using DMA.
@@ -58,6 +58,6 @@ void SPI_DMA_deinit(SPI_TypeDef* SPIx)
  *            - 0: DMA has not started with sending data
  *            - > 0: DMA has started with sending data
  */
-uint8_t SPI_DMA_transmit(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint16_t count);
+uint8_t SPI_DMA_transmit8bits(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint8_t* RX_Buffer, uint16_t count);
 
 #endif /* SPI_DMA_H_ */

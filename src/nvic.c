@@ -50,6 +50,13 @@ void NVIC_init(void)
 	/* Enable Interrupt on DMA1 Stream4 */
 	NVIC_EnableIRQ(DMA1_Stream4_IRQn);
 
+/* DMA SPI2 RX */
+	NVIC_SetPriority(DMA1_Stream3_IRQn, 0x01);
+	/* Clear the pending bit */
+	NVIC_ClearPendingIRQ(DMA1_Stream3_IRQn);
+	/* Enable Interrupt on DMA1 Stream4 */
+	NVIC_EnableIRQ(DMA1_Stream3_IRQn);
+
 
 /* */
 /* */

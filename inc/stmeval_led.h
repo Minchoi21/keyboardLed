@@ -18,7 +18,7 @@
 /* Private typedef -----------------------------------------------------------*/
 typedef enum
 {
-  BUTTON_USER = 0,
+  BUTTON_USER = 0
 } Button_TypeDef;
 
 typedef enum

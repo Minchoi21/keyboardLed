@@ -31,7 +31,6 @@ void TLC5971_init(void)
 	}
 
 	TLC5971_clr_led_all();
-	TLC5971_send_packet(SPI2);
 }
 
 //------------------------------------------------------------------------------
@@ -107,8 +106,8 @@ void TLC5971_send_packet(SPI_TypeDef* SPIx)
 //	__disable_irq();
 
 	/* Send package */
-	SPI_DMA_transmit(SPIx, (uint8_t*)&tlc5971_drv.PAC, (uint16_t)TLC5971_ALL_PAC_LEN);
-	SPI_txData8bit(SPI1, (uint8_t*)&tlc5971_drv.PAC, (uint16_t)TLC5971_PAC_LEN);
+	SPI_DMA_transmit8bits(SPIx, (uint8_t*)&tlc5971_drv.PAC, NULL, (uint16_t)TLC5971_ALL_PAC_LEN);
+//	SPI_txData8bit(SPI1, (uint8_t*)&tlc5971_drv.PAC, (uint16_t)TLC5971_PAC_LEN);
 
 	/* Enable interrupts back */
 //	__enable_irq();

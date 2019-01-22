@@ -21,15 +21,13 @@ typedef struct {
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
-/* SPI1 TX and RX default settings */
+/* SPIx TX and RX default settings */
 #ifdef SPI1
 static st_SPI_DMA_settings_t st_spi1_dma = {DMA2_Stream3, DMA_Channel_3, DMA2_Stream2, DMA_Channel_3};
 #endif
-/* SPI2 TX and RX default settings */
 #ifdef SPI2
 static st_SPI_DMA_settings_t st_spi2_dma = {DMA1_Stream4, DMA_Channel_0, DMA1_Stream3, DMA_Channel_0};
 #endif
-/* SPI3 TX and RX default settings */
 #ifdef SPI3
 static st_SPI_DMA_settings_t st_spi3_dma = {DMA1_Stream5, DMA_Channel_0, DMA1_Stream0, DMA_Channel_0};
 #endif
@@ -39,7 +37,8 @@ static st_SPI_DMA_settings_t* SPI_DMA_getSettings(SPI_TypeDef* SPIx);
 
 /* Private functions ---------------------------------------------------------*/
 
-void SPI_DMA_init(SPI_TypeDef* SPIx) {
+void SPI_DMA_init(SPI_TypeDef* SPIx)
+{
 
 	/* Assuming SPI is already initialized and clock is enabled */
 
@@ -80,7 +79,76 @@ void SPI_DMA_deinit(SPI_TypeDef* SPIx)
 	DMA_deinit(st_settings->RX_Stream);
 }
 
-uint8_t SPI_DMA_transmit(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint16_t count)
+uint8_t SPI_DMA_transmit8bits(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint8_t* RX_Buffer, uint16_t count)
+{
+
+	/* Get DMA Stream and Channel for SPIx */
+	st_SPI_DMA_settings_t* st_settings = SPI_DMA_getSettings(SPIx);
+
+	/* Check if DMA available */
+	if (
+		st_settings->TX_Stream->NDTR ||
+		st_settings->TX_Stream->NDTR ||
+		(TX_Buffer == NULL && RX_Buffer == NULL)||
+		SPI_IS_BUSY(SPIx)
+	) {
+		return 0;
+	}
+
+	/* Enable SPI RX & TX DMA */
+	SPIx->CR2 |= SPI_CR2_RXDMAEN | SPI_CR2_TXDMAEN;
+
+/* TX */
+	/* Set DMA peripheral address and count */
+	st_settings->TX_Stream->PAR = (uint32_t) &SPIx->DR;
+	st_settings->TX_Stream->NDTR = count;
+
+	/* Configure TX DMA direction */
+	st_settings->TX_Stream->CR |= DMA_SxCR_DIR_0; 		/* Direction Memory to Peripheral */
+
+	if(TX_Buffer != NULL) {
+		/* Set DMA memory address and memory increment mode as a enabled*/
+		st_settings->TX_Stream->M0AR = (uint32_t) TX_Buffer;
+		st_settings->TX_Stream->CR |= DMA_SxCR_MINC;
+	} else {
+		st_settings->TX_Stream->M0AR = (uint32_t)0x0000;
+		st_settings->TX_Stream->CR &= ~((uint32_t)DMA_SxCR_MINC);
+	}
+
+	/* Deinit first TX stream (clear DMA stream IRQ flags) */
+	DMA_clearFlag(st_settings->TX_Stream, DMA_FLAG_ALL);
+
+/* RX */
+	/* Set DMA peripheral address and count */
+	st_settings->RX_Stream->PAR = (uint32_t) &SPIx->DR;
+	st_settings->RX_Stream->NDTR = count;
+
+	/* Configure RX DMA direction */
+	st_settings->RX_Stream->CR &= ~((uint32_t)DMA_SxCR_DIR); 		/* Direction Peripheral to Memory */
+
+	if(RX_Buffer != NULL) {
+		/* Set DMA memory address and memory increment mode as a enabled*/
+		st_settings->RX_Stream->M0AR = (uint32_t) RX_Buffer;
+		st_settings->RX_Stream->CR |= DMA_SxCR_MINC;
+	} else {
+		st_settings->RX_Stream->M0AR = (uint32_t)0x0000;
+		st_settings->RX_Stream->CR &= ~((uint32_t)DMA_SxCR_MINC);
+	}
+
+	/* Deinit first RX stream (clear DMA stream IRQ flags) */
+	DMA_clearFlag(st_settings->RX_Stream, DMA_FLAG_ALL);
+
+
+	/* Enable TX stream */
+	st_settings->TX_Stream->CR |= DMA_SxCR_EN;
+	/* Enable RX stream */
+	st_settings->RX_Stream->CR |= DMA_SxCR_EN;
+
+	/* Return OK */
+	return 1;
+}
+
+uint8_t SPI_DMA_transmit16bits(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint16_t count)
 {
 
 	/* Get DMA Stream and Channel for SPIx */

@@ -60,7 +60,6 @@ void DMA_init(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t channel)
 
 	/* Set DMA options for TX Stream */
 	DMAy_Streamx->CR |= channel;
-//	DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_CHSEL); 			/* Channel0 for SPI DMA TX*/
 
 	/* Enable DMA stream interrupts */
 	DMAy_Streamx->CR |= DMA_SxCR_TCIE | DMA_SxCR_HTIE | DMA_SxCR_TEIE | DMA_SxCR_DMEIE;
@@ -164,6 +163,18 @@ static void TM_DMA_INT_ProcessInterrupt(DMA_Stream_TypeDef* DMA_Stream) {
 	}
 }
 
+
+#ifndef DMA1_STREAM3_DISABLE_IRQHANDLER
+void DMA1_Stream3_IRQHandler(void) {
+	NVIC_ClearPendingIRQ(DMA1_Stream3_IRQn);
+	/* Clear all flags */
+	DMA_clearFlag(DMA1_Stream3, DMA_FLAG_ALL);
+//	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
+	/* Call user function */
+	TM_DMA_INT_ProcessInterrupt(DMA1_Stream3);
+
+}
+#endif
 #ifndef DMA1_STREAM4_DISABLE_IRQHANDLER
 void DMA1_Stream4_IRQHandler(void) {
 	NVIC_ClearPendingIRQ(DMA1_Stream4_IRQn);
@@ -172,6 +183,28 @@ void DMA1_Stream4_IRQHandler(void) {
 //	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
 	/* Call user function */
 	TM_DMA_INT_ProcessInterrupt(DMA1_Stream4);
+
+}
+#endif
+#ifndef DMA2_STREAM2_DISABLE_IRQHANDLER
+void DMA2_Stream2_IRQHandler(void) {
+	NVIC_ClearPendingIRQ(DMA2_Stream2_IRQn);
+	/* Clear all flags */
+	DMA_clearFlag(DMA2_Stream2, DMA_FLAG_ALL);
+//	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
+	/* Call user function */
+	TM_DMA_INT_ProcessInterrupt(DMA2_Stream2);
+
+}
+#endif
+#ifndef DMA2_STREAM3_DISABLE_IRQHANDLER
+void DMA2_Stream3_IRQHandler(void) {
+	NVIC_ClearPendingIRQ(DMA2_Stream3_IRQn);
+	/* Clear all flags */
+	DMA_clearFlag(DMA2_Stream3, DMA_FLAG_ALL);
+//	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
+	/* Call user function */
+	TM_DMA_INT_ProcessInterrupt(DMA2_Stream3);
 
 }
 #endif

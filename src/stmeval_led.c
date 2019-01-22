@@ -83,14 +83,19 @@ void STM_EVAL_initBoard(void)
 	SPI_init(SPI2, SPI_PINSPACK_2);
 	SPI_DMA_init(SPI2);
 	TLC5971_init();
+	/* Send packet to turn off led's on external Keyboard */
+	TLC5971_send_packet(SPI2);
 	TLC5971_set_luminosity(3840);
 
 /* SPI1 */
-	/* Configure SPI1 for MAX7301 I/O Expander on external Keyboard */
-	SPI_init(SPI1, SPI_PINSPACK_1);
 	/* Reset PE3 to set low on CS_SPI for LIS3DSH */
 	GPIO_init(GPIOE, GPIO_Pin_3, GPIO_Mode_OUT, GPIO_OType_PP, GPIO_PuPd_UP, GPIO_Speed_Medium);
 	GPIO_resetPin(GPIOE, GPIO_Pin_3);
+	/* Configure SPI1 for MAX7301 I/O Expander on external Keyboard */
+	SPI_init(SPI1, SPI_PINSPACK_1);
+	SPI_DMA_init(SPI1);
+
+
 }
 
 ///**
