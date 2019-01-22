@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    main.c
-  * @author  Daniel Wa¿ydr¹g
+  * @author  Daniel Waï¿½ydrï¿½g
   * @version V1.0
   * @date    22-Nowember-2018
   * @brief   Default main function.
@@ -42,7 +42,7 @@ int main(void)
 			TLC5971_clr_led_all();
 			TLC5971_set_led(1<<led++);
 			TLC5971_send_packet(SPI2);
-			TLC5971_send_packet(SPI1);
+//			TLC5971_send_packet(SPI1);
 		}
 	}
 }

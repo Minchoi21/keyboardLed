@@ -94,8 +94,6 @@ void STM_EVAL_initBoard(void)
 	/* Configure SPI1 for MAX7301 I/O Expander on external Keyboard */
 	SPI_init(SPI1, SPI_PINSPACK_1);
 	SPI_DMA_init(SPI1);
-
-
 }
 
 ///**

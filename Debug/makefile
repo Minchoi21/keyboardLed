@@ -27,13 +27,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: keyboardLed.elf
+all: LED_Keyboard.elf
 
 # Tool invocations
-keyboardLed.elf: $(OBJS) $(USER_OBJS) C:\Users\Daniel\workspace\keyboardLed/LinkerScript.ld
+LED_Keyboard.elf: $(OBJS) $(USER_OBJS) /home/oem/workspace/LED_Keyboard/LinkerScript.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"C:/Users/Daniel/workspace/keyboardLed/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "keyboardLed.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"/home/oem/workspace/LED_Keyboard/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "LED_Keyboard.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -45,8 +45,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "keyboardLed.elf" "keyboardLed.bin"
-	arm-none-eabi-size "keyboardLed.elf"
+	arm-none-eabi-objcopy -O binary "LED_Keyboard.elf" "LED_Keyboard.bin"
+	arm-none-eabi-size "LED_Keyboard.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents

@@ -100,6 +100,14 @@ void SPI_txData8bit(SPI_TypeDef* SPIx, uint8_t *pData, uint32_t size)
 	/* Wait for previous transmissions to complete if DMA TX enabled for SPI */
 	SPI_WAIT(SPIx);
 
+	/* Disable SPIx */
+	SPI2->CR1 &= ~(SPI_CR1_SPE);
+	/* Set 8-bit data frame format */
+	SPI2->CR1 &= ~(SPI_CR1_DFF);
+	/* Enable SPIx */
+	SPI2->CR1 |= SPI_CR1_SPE;
+
+
 	for (i = 0; i < size; i++) {
 		/* Fill output buffer with data */
 		SPIx->DR = pData[i];
@@ -134,6 +142,13 @@ void SPI_txData16bit(SPI_TypeDef* SPIx, uint16_t *pData, uint32_t size)
 
 	/* Wait for previous transmissions to complete if DMA TX enabled for SPI */
 	SPI_WAIT(SPIx);
+
+	/* Disable SPIx */
+	SPI2->CR1 &= ~(SPI_CR1_SPE);
+	/* Set 16-bit data frame format */
+	SPI2->CR1 |= SPI_CR1_DFF;
+	/* Enable SPIx */
+	SPI2->CR1 |= SPI_CR1_SPE;
 
 	for (i = 0; i < size; i++) {
 		/* Fill output buffer with data */
