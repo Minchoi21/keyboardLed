@@ -9,6 +9,7 @@ C_SRCS += \
 ../src/flash.c \
 ../src/gpio.c \
 ../src/main.c \
+../src/max7301.c \
 ../src/nvic.c \
 ../src/rcc.c \
 ../src/spi.c \
@@ -26,6 +27,7 @@ OBJS += \
 ./src/flash.o \
 ./src/gpio.o \
 ./src/main.o \
+./src/max7301.o \
 ./src/nvic.o \
 ./src/rcc.o \
 ./src/spi.o \
@@ -43,6 +45,7 @@ C_DEPS += \
 ./src/flash.d \
 ./src/gpio.d \
 ./src/main.d \
+./src/max7301.d \
 ./src/nvic.d \
 ./src/rcc.d \
 ./src/spi.d \
@@ -60,7 +63,7 @@ src/%.o: ../src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Compiler'
 	@echo $(PWD)
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -DSTM32F407xx -I"/home/oem/workspace/LED_Keyboard/inc" -I"/home/oem/workspace/LED_Keyboard/CMSIS/device" -I"/home/oem/workspace/LED_Keyboard/CMSIS/core" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -DSTM32F407xx -I"C:/Users/Daniel/workspace/keyboardLed/inc" -I"C:/Users/Daniel/workspace/keyboardLed/CMSIS/device" -I"C:/Users/Daniel/workspace/keyboardLed/CMSIS/core" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

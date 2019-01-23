@@ -26,12 +26,14 @@
 /* Functions -----------------------------------------------------------------*/
 
 /*!
- * @brief Configure
+ * @brief Configure each expander port as a no-push-pull input using SPI
  * @note
  * @warning none
  * @param  	none
  * @return 	none
  */
-void TLC5971_init( void );
+void MAX7301_init( void );
+
+
 
 #endif /* MAX7301_H_ */

@@ -31,7 +31,7 @@ void Delay (uint32_t nCount);
 int main(void)
 {
 	static uint8_t led = 2;
-
+	uint16_t var[2] = {0xAAFF, 0xBBCC} ;
 	SYS_init();
 	STM_EVAL_initBoard();
 	for(;;)
@@ -39,10 +39,13 @@ int main(void)
 		if(SysTick_time2_flag) {
 			SysTick_time2_flag = FALSE;
 			if(led >= (TLC5971_ALL_NUM_LED)) led = 2;
-			TLC5971_clr_led_all();
-			TLC5971_set_led(1<<led++);
-			TLC5971_send_packet(SPI2);
-//			TLC5971_send_packet(SPI1);
+			TLC5971_clrLedAll();
+			TLC5971_setLed(1<<led++);
+			TLC5971_sendPacket(SPI2);
+//			SPI_txData8bit(SPI1, (uint8_t*)var, 4);
+			/* Send package */
+			SPI_DMA_transmit8bits(SPI1, (uint8_t*)var, NULL, 4);
+//			TLC5971_sendPacket(SPI1);
 		}
 	}
 }

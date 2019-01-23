@@ -17,7 +17,7 @@
 
 /* Private functions ---------------------------------------------------------*/
 
-void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack)
+void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack, en_SPI_dataSize_t data_size)
 {
 	/* Init pins */
 	SPI_initPinsPack(SPIx, pinspack);
@@ -27,8 +27,15 @@ void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack)
 
 	/* Master selection, BR: Fpclk/SPI_BR_DIV_xxx, CPOL and CPHA at zero (rising first edge) */
 	SPIx->CR1 = SPI_CR1_MSTR|(SPI_BR_DIV_64 << SPI_CR1_BR_Pos)|SPI_CR1_SSM|SPI_CR1_SSI; //|SPI_CR1_SSM|SPI_CR1_SSI
-	/* Set 8-bit data frame format */
-	SPIx->CR1 &= ~SPI_CR1_DFF;
+
+	/* Set data frame format */
+	if (data_size == SPI_DATASIZE_16b) {
+		/* Set bit for frame (16-bits frame size) */
+		SPIx->CR1 |= SPI_CR1_DFF;
+	} else {
+		/* Clear bit for frame (8-bits frame size) */
+		SPIx->CR1 &= ~SPI_CR1_DFF;
+	}
 
 //	SPIx->CR2 = SPI_CR2_SSOE|SPI_CR2_RXNEIE|SPI_CR2_TXEIE|SPI_CR2_FRF;
 	/* Enable SPIx */
@@ -100,14 +107,6 @@ void SPI_txData8bit(SPI_TypeDef* SPIx, uint8_t *pData, uint32_t size)
 	/* Wait for previous transmissions to complete if DMA TX enabled for SPI */
 	SPI_WAIT(SPIx);
 
-	/* Disable SPIx */
-	SPI2->CR1 &= ~(SPI_CR1_SPE);
-	/* Set 8-bit data frame format */
-	SPI2->CR1 &= ~(SPI_CR1_DFF);
-	/* Enable SPIx */
-	SPI2->CR1 |= SPI_CR1_SPE;
-
-
 	for (i = 0; i < size; i++) {
 		/* Fill output buffer with data */
 		SPIx->DR = pData[i];
@@ -142,13 +141,6 @@ void SPI_txData16bit(SPI_TypeDef* SPIx, uint16_t *pData, uint32_t size)
 
 	/* Wait for previous transmissions to complete if DMA TX enabled for SPI */
 	SPI_WAIT(SPIx);
-
-	/* Disable SPIx */
-	SPI2->CR1 &= ~(SPI_CR1_SPE);
-	/* Set 16-bit data frame format */
-	SPI2->CR1 |= SPI_CR1_DFF;
-	/* Enable SPIx */
-	SPI2->CR1 |= SPI_CR1_SPE;
 
 	for (i = 0; i < size; i++) {
 		/* Fill output buffer with data */

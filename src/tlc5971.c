@@ -30,11 +30,11 @@ void TLC5971_init(void)
 		tlc5971_drv.PAC[num].CF[3] = 0xFF;
 	}
 
-	TLC5971_clr_led_all();
+	TLC5971_clrLedAll();
 }
 
 //------------------------------------------------------------------------------
-void TLC5971_set_led( en_TLC5971_led_t led)
+void TLC5971_setLed( en_TLC5971_led_t led)
 {
 	uint8_t pac_num, led_num;
 
@@ -68,7 +68,7 @@ void TLC5971_set_led( en_TLC5971_led_t led)
 }
 
 //------------------------------------------------------------------------------
-void TLC5971_clr_led( en_TLC5971_led_t led)
+void TLC5971_clrLed( en_TLC5971_led_t led)
 {
 
 	if(led & LED_SET_ALL_MASK) {
@@ -77,19 +77,19 @@ void TLC5971_clr_led( en_TLC5971_led_t led)
 }
 
 //------------------------------------------------------------------------------
-void TLC5971_set_led_all( void )
+void TLC5971_setLedAll( void )
 {
 	  tlc5971_drv.LDS |= LED_SET_ALL_MASK;
 }
 
 //------------------------------------------------------------------------------
-void TLC5971_clr_led_all( void )
+void TLC5971_clrLedAll( void )
 {
 	  tlc5971_drv.LDS = LED_CLR_ALL_MASK;
 }
 
 //------------------------------------------------------------------------------
-void TLC5971_set_luminosity( uint16_t lum )
+void TLC5971_setLuminosity( uint16_t lum )
 {
 //	tlc5971_drv.luminosity = (uint16_t)(lum*(65535/1023)); //scaling value
 
@@ -100,13 +100,14 @@ void TLC5971_set_luminosity( uint16_t lum )
 }
 
 //------------------------------------------------------------------------------
-void TLC5971_send_packet(SPI_TypeDef* SPIx)
+void TLC5971_sendPacket(SPI_TypeDef* SPIx)
 {
 	/* Disable interrupts */
 //	__disable_irq();
 
 	/* Send package */
 	SPI_DMA_transmit8bits(SPIx, (uint8_t*)&tlc5971_drv.PAC, NULL, (uint16_t)TLC5971_ALL_PAC_LEN);
+//	SPI_txData16bit(SPI1, (uint16_t*)&tlc5971_drv.PAC, (uint16_t)(TLC5971_PAC_LEN/2));
 //	SPI_txData8bit(SPI1, (uint8_t*)&tlc5971_drv.PAC, (uint16_t)TLC5971_PAC_LEN);
 
 	/* Enable interrupts back */

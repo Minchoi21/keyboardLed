@@ -39,8 +39,12 @@ static st_SPI_DMA_settings_t* SPI_DMA_getSettings(SPI_TypeDef* SPIx);
 
 void SPI_DMA_init(SPI_TypeDef* SPIx)
 {
-
 	/* Assuming SPI is already initialized and clock is enabled */
+
+	en_DMA_MemoryDataSize_t mem_size;
+	en_DMA_PeripheralDataSize_t periph_size;
+	/* Checking which data frame size is set for specified SPIx */
+	en_SPI_dataSize_t data_size = (SPIx->CR1 & SPI_CR1_DFF) ? SPI_DATASIZE_16b : SPI_DATASIZE_8b;
 
 	/* Get DMA Stream and Channel for SPIx */
 	st_SPI_DMA_settings_t* st_settings = SPI_DMA_getSettings(SPIx);
@@ -63,10 +67,18 @@ void SPI_DMA_init(SPI_TypeDef* SPIx)
 		RCC_DMA1_CLK_ENABLE;
 	}
 
+	if (data_size == SPI_DATASIZE_8b) {
+		mem_size = DMA_MDATASIZE_8b;
+		periph_size = DMA_PDATASIZE_8b;
+	} else {
+		mem_size = DMA_MDATASIZE_16b;
+		periph_size = DMA_PDATASIZE_16b;
+	}
+
 	/* Init TX stream */
-	DMA_init(st_settings->TX_Stream, st_settings->TX_Channel);
+	DMA_init(st_settings->TX_Stream, st_settings->TX_Channel, mem_size, periph_size);
 	/* Init RX stream */
-	DMA_init(st_settings->RX_Stream, st_settings->RX_Channel);
+	DMA_init(st_settings->RX_Stream, st_settings->RX_Channel, mem_size, periph_size);
 }
 
 void SPI_DMA_deinit(SPI_TypeDef* SPIx)
@@ -148,7 +160,7 @@ uint8_t SPI_DMA_transmit8bits(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint8_t* RX
 	return 1;
 }
 
-uint8_t SPI_DMA_transmit16bits(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint16_t count)
+uint16_t SPI_DMA_transmit16bits(SPI_TypeDef* SPIx, uint16_t* TX_Buffer, uint16_t* RX_Buffer, uint16_t count)
 {
 
 	/* Get DMA Stream and Channel for SPIx */

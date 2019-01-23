@@ -1,30 +1,30 @@
-src/spi.o: ../src/spi.c /home/oem/workspace/LED_Keyboard/inc/spi.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f4xx.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f407xx.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cm4.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmInstr.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/core/cmsis_gcc.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmFunc.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmSimd.h \
- /home/oem/workspace/LED_Keyboard/CMSIS/device/system_stm32f4xx.h \
- /home/oem/workspace/LED_Keyboard/inc/gpio.h
+src/spi.o: ../src/spi.c C:/Users/Daniel/workspace/keyboardLed/inc/spi.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f4xx.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f407xx.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cm4.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmInstr.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/cmsis_gcc.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmFunc.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmSimd.h \
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h
 
-/home/oem/workspace/LED_Keyboard/inc/spi.h:
+C:/Users/Daniel/workspace/keyboardLed/inc/spi.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f4xx.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f4xx.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/device/stm32f407xx.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f407xx.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cm4.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cm4.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmInstr.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmInstr.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/core/cmsis_gcc.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/cmsis_gcc.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmFunc.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmFunc.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/core/core_cmSimd.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmSimd.h:
 
-/home/oem/workspace/LED_Keyboard/CMSIS/device/system_stm32f4xx.h:
+C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h:
 
-/home/oem/workspace/LED_Keyboard/inc/gpio.h:
+C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h:

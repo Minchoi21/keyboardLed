@@ -113,15 +113,15 @@ typedef enum {
 //  100101      10010      1111111     1111111     1111111     Channel_1    Channel_2    Channel_3     Channel_4-9    Channel_10   Channel_11   Channel_12
 //	10010110      01011111		 11111111		11111111
 
-typedef struct TLC5971_rgbled {
+typedef struct TLC5971_rgbLed {
 	union value_short GS_blue;   	// value of blue color. Takes values from 0 - 65535.
 	union value_short GS_green;   	// value of green color. Takes values from 0 - 65535.
 	union value_short GS_red;   	// value of red color. Takes values from 0 - 65535.
-}st_TLC5971_rgb_led_t;
+}st_TLC5971_rgbLed_t;
 
 typedef struct TLC5971_pac {
 uint8_t CF[4];					// 32 bits driver configuration
-st_TLC5971_rgb_led_t rgb_led[TLC5971_NUM_LED];   // TLC5971_NUM_LED -> number of led's on single drivers
+st_TLC5971_rgbLed_t rgb_led[TLC5971_NUM_LED];   // TLC5971_NUM_LED -> number of led's on single drivers
 }st_tlc5971_pac_t;
 
 
@@ -155,7 +155,7 @@ void TLC5971_init( void );
  * @param  	en_TLC5971_led_t led  -> the number's of the diode to turn on. This parameter can be a value of @ref en_TLC5971_led_t enumeration
  * @return 	none
  */
-void TLC5971_set_led( en_TLC5971_led_t led );
+void TLC5971_setLed( en_TLC5971_led_t led );
 
 /*!
  * @brief	Set LED's to light off.
@@ -164,7 +164,7 @@ void TLC5971_set_led( en_TLC5971_led_t led );
  * @param  	en_TLC5971_led_t led  -> the number's of the diode to turn off. This parameter can be a value of @ref en_TLC5971_led_t enumeration
  * @return 	none
  */
-void TLC5971_clr_led( en_TLC5971_led_t led );
+void TLC5971_clrLed( en_TLC5971_led_t led );
 
 /*!
  * @brief	Set all LED's to light up
@@ -173,7 +173,7 @@ void TLC5971_clr_led( en_TLC5971_led_t led );
  * @param  	none
  * @return 	none
  */
-void TLC5971_set_led_all( void );
+void TLC5971_setLedAll( void );
 
 /*!
  * @brief	Set all LED's to light off
@@ -182,7 +182,7 @@ void TLC5971_set_led_all( void );
  * @param  	none
  * @return 	none
  */
-void TLC5971_clr_led_all( void );
+void TLC5971_clrLedAll( void );
 
 /*!
  * @brief	Set luminosity for all LED's
@@ -191,7 +191,7 @@ void TLC5971_clr_led_all( void );
  * @param  	lum: value of luminosity for each colors. This parameter can be a value form 0 - 65535
  * @return 	none
  */
-void TLC5971_set_luminosity( uint16_t lum );
+void TLC5971_setLuminosity( uint16_t lum );
 
 /*!
  * @brief	Send data package to the all TCL5971 drivers by SPIx using DMA
@@ -200,7 +200,7 @@ void TLC5971_set_luminosity( uint16_t lum );
  * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3
  * @return 	none
  */
-void TLC5971_send_packet( SPI_TypeDef* SPIx );
+void TLC5971_sendPacket( SPI_TypeDef* SPIx );
 
 // ----- FUNCTION TO SOFTWARE SPI -------------
 //extern void TLC5971_set_led(uint8_t led, uint16_t intensity);

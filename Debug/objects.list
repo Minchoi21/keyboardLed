@@ -3,6 +3,7 @@
 "src/flash.o"
 "src/gpio.o"
 "src/main.o"
+"src/max7301.o"
 "src/nvic.o"
 "src/rcc.o"
 "src/spi.o"

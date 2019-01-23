@@ -49,15 +49,33 @@ void SPI_DMA_init(SPI_TypeDef* SPIx);
 void SPI_DMA_deinit(SPI_TypeDef* SPIx);
 
 /*!
- * @brief  	Transmit data over SPI using DMA.
+ * @brief  	Transmit 8-bits data over SPI using DMA.
  * @note
  * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3
  * @param  	*TX_Buffer: Pointer to TX_Buffer where DMA will take data to sent over SPI
+ * 				Set this parameter to NULL, if you want to sent "0x00" and only receive data into *RX_Buffer pointer
+ * @param  	*RX_Buffer: Pointer to RX_Buffer where DMA will save data from SPI.
+ * 				Set this parameter to NULL, if you don't want to receive any data, only sent from TX_Buffer
  * @param	size: number of bytes to send/receive over SPI
  * @return 	Sending status about started transmision:
  *            - 0: DMA has not started with sending data
  *            - > 0: DMA has started with sending data
  */
 uint8_t SPI_DMA_transmit8bits(SPI_TypeDef* SPIx, uint8_t* TX_Buffer, uint8_t* RX_Buffer, uint16_t count);
+
+/*!
+ * @brief  	Transmit 16-bits data over SPI using DMA.
+ * @note
+ * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3
+ * @param  	*TX_Buffer: Pointer to TX_Buffer where DMA will take data to sent over SPI
+ * 				Set this parameter to NULL, if you want to sent "0x0000" and only receive data into *RX_Buffer pointer
+ * @param  	*RX_Buffer: Pointer to RX_Buffer where DMA will save data from SPI.
+ * 				Set this parameter to NULL, if you don't want to receive any data, only sent from TX_Buffer
+ * @param	size: number of bytes to send/receive over SPI
+ * @return 	Sending status about started transmision:
+ *            - 0: DMA has not started with sending data
+ *            - > 0: DMA has started with sending data
+ */
+uint16_t SPI_DMA_transmit16bits(SPI_TypeDef* SPIx, uint16_t* TX_Buffer, uint16_t* RX_Buffer, uint16_t count);
 
 #endif /* SPI_DMA_H_ */

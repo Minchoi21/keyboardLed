@@ -43,6 +43,14 @@ typedef enum {
 	SPI_PINSPACK_3,
 } en_SPI_PinsPack_t;
 
+/*!
+ * @brief SPI Data size enumeration
+ */
+typedef enum {
+	SPI_DATASIZE_8b, 	/*!< SPI in 8-bits mode */
+	SPI_DATASIZE_16b 	/*!< SPI in 16-bits mode */
+} en_SPI_dataSize_t;
+
 /* Private define ------------------------------------------------------------*/
 
 
@@ -77,13 +85,14 @@ typedef enum {
 /*!
  * @brief  Initializes SPIx peripheral with default settings.
  * Master mode, 8 data bits, clock polarity low, data sampled at first edge,
- * prescaler set to 32, firstbit MSB, software SS pin configure, direction is full duplex 3 wires
+ * prescaler set to 32, firstbit MSB, software SS pin configure, direction is full duplex 3 wires.
  * @warning none
- * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3
- * @param  	pinspack: Pinspack you will use from default SPI table. This parameter can be a value of @ref en_SPI_PinsPack_t enumeration
+ * @param  	*SPIx: Pointer to SPIx peripheral you will use, where x is between 1 to 3.
+ * @param  	pinspack: Pinspack you will use from default SPI table. This parameter can be a value of @ref en_SPI_PinsPack_t enumeration.
+ * @param  	data_size: SPI data size which will be used. This parameter can be a value of @ref en_SPI_dataSize_t enumeration.
  * @return 	none
  */
-void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack);
+void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack, en_SPI_dataSize_t data_size);
 
 /*!
  * @brief  Initializes SPIx pins.

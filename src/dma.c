@@ -52,14 +52,19 @@ void DMA_clearFlag(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t flag)
 	*(__IO uint32_t *)location = (flag & DMA_FLAG_ALL) << DMA_Flags_Bit_Pos[stream_number];
 }
 
-void DMA_init(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t channel)
+void DMA_init(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t channel, en_DMA_MemoryDataSize_t mem_size, en_DMA_PeripheralDataSize_t periph_size)
 {
-
 	/* Disable DMA TX Stream */
 	DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_EN);
 
+	/* Clear peripheral and memory data size fields */
+	DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_PSIZE | (uint32_t)DMA_SxCR_MSIZE);
+
 	/* Set DMA options for TX Stream */
 	DMAy_Streamx->CR |= channel;
+
+	/* Set DMA peripheral and memory data size */
+	DMAy_Streamx->CR |= (mem_size | periph_size);
 
 	/* Enable DMA stream interrupts */
 	DMAy_Streamx->CR |= DMA_SxCR_TCIE | DMA_SxCR_HTIE | DMA_SxCR_TEIE | DMA_SxCR_DMEIE;

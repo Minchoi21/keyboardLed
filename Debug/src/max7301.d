@@ -1,4 +1,6 @@
-src/dma.o: ../src/dma.c C:/Users/Daniel/workspace/keyboardLed/inc/dma.h \
+src/max7301.o: ../src/max7301.c \
+ C:/Users/Daniel/workspace/keyboardLed/inc/max7301.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/def.h \
  C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f4xx.h \
  C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f407xx.h \
  C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cm4.h \
@@ -6,9 +8,16 @@ src/dma.o: ../src/dma.c C:/Users/Daniel/workspace/keyboardLed/inc/dma.h \
  C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/cmsis_gcc.h \
  C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmFunc.h \
  C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmSimd.h \
- C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h
+ C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/spi.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/dma.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h
 
-C:/Users/Daniel/workspace/keyboardLed/inc/dma.h:
+C:/Users/Daniel/workspace/keyboardLed/inc/max7301.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/def.h:
 
 C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/stm32f4xx.h:
 
@@ -25,3 +34,13 @@ C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmFunc.h:
 C:/Users/Daniel/workspace/keyboardLed/CMSIS/core/core_cmSimd.h:
 
 C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/spi.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/dma.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h:

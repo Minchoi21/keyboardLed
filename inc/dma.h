@@ -12,6 +12,36 @@
 #include "stm32f4xx.h"
 
 /* Typedef -----------------------------------------------------------*/
+
+
+/*!
+  * @brief DMA Memory Data Size
+  */
+typedef enum DMA_MemoryDataSize {
+	DMA_MDATASIZE_8b    = ((uint32_t)0x00000000),
+	DMA_MDATASIZE_16b   = ((uint32_t)0x00002000),
+	DMA_MDATASIZE_32b   = ((uint32_t)0x00004000),
+} en_DMA_MemoryDataSize_t;
+
+#define IS_DMA_MEMORY_DATA_SIZE(SIZE) (((SIZE) == DMA_MDATASIZE_8b)  || \
+                                       ((SIZE) == DMA_MDATASIZE_16b) || \
+                                       ((SIZE) == DMA_MDATASIZE_32b ))
+
+/*!
+  * @brief DMA Peripheral Data Size
+  */
+typedef enum DMA_PeripheralDataSize {
+	DMA_PDATASIZE_8b    = ((uint32_t)0x00000000),
+	DMA_PDATASIZE_16b   = ((uint32_t)0x00000800),
+	DMA_PDATASIZE_32b   = ((uint32_t)0x00001000),
+} en_DMA_PeripheralDataSize_t;
+
+#define IS_DMA_PERIPHERAL_DATA_SIZE(SIZE) (((SIZE) == DMA_PDATASIZE_8b)  || \
+                                           ((SIZE) == DMA_PDATASIZE_16b) || \
+                                           ((SIZE) == DMA_PDATASIZE_32b))
+
+
+
 /* Define ------------------------------------------------------------*/
 
 /* DMA definition for interrupt flags */
@@ -67,9 +97,11 @@ void DMA_clearFlag(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t flags);
  * 			where y can be 1 or 2 to select the DMA and x can be 0 to 7 to select the DMA Stream.
  * @param  	channel: Select DMA channel for your SPI in specific DMA Stream.
  * 			This parameter can be a value of @ref DMA_Channel_x definitions.
+ * @param  	mem_size: DMA memory data size which will be used. This parameter can be a value of @ref en_DMA_MemoryDataSize_t enumeration.
+ * @param  	periph_size: DMA peripheral data size which will be used. This parameter can be a value of @ref en_DMA_PeripheralDataSize_t enumeration.
  * @return 	none
  */
-void DMA_init(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t channel);
+void DMA_init(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t channel, en_DMA_MemoryDataSize_t mem_size, en_DMA_PeripheralDataSize_t periph_size);
 
 /*!
  * @brief  	Deinitializes the selected DMA Streams
