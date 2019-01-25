@@ -14,6 +14,7 @@
 #include "exti.h"
 #include "spi.h"
 #include "tlc5971.h"
+#include "max7301.h"
 
 /* Private typedef -----------------------------------------------------------*/
 typedef enum

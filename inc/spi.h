@@ -102,11 +102,12 @@ void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack, en_SPI_dataSize_t d
  * @return 	none
  */
 void SPI_initPinsPack(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack);
+
 /*!
  * @brief Writes multiple bytes over SPI
  * @warning none
  * @param  	*SPIx: pointer to SPIx peripheral you will use, where x is between 1 to 3
- * @param  	*pData: pointer to data where DMA will take data to sent over SPI
+ * @param  	*pData: pointer to array with 8-bits data to sent over SPIx
  * @param	size: number of bytes to send over SPI
  * @return 	none
  */
@@ -116,7 +117,17 @@ void SPI_txData8bit(SPI_TypeDef* SPIx, uint8_t* pData, uint32_t size);
  * @brief Writes multiple bytes over SPI
  * @warning none
  * @param  	*SPIx: pointer to SPIx peripheral you will use, where x is between 1 to 3
- * @param  	*pData: 16-bit data size to send over SPI
+ * @param  	*data_in: pointer to 16-bits data to sent over SPIx
+ * @param  	*data_out: pointer to 16-bits data to receiving over SPIx
+ * @return 	none
+ */
+uint16_t SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in);
+
+/*!
+ * @brief Writes multiple bytes over SPI
+ * @warning none
+ * @param  	*SPIx: pointer to SPIx peripheral you will use, where x is between 1 to 3
+ * @param  	*pData: pointer to array with 16-bits data to sent over SPIx
  * @param	size: number of bytes to send over SPI
  * @return 	none
  */

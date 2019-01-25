@@ -17,6 +17,7 @@ src/main.o: ../src/main.c \
  C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/dma.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/max7301.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/flash.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/nvic.h
 
@@ -55,6 +56,8 @@ C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h:
 C:/Users/Daniel/workspace/keyboardLed/inc/dma.h:
 
 C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/max7301.h:
 
 C:/Users/Daniel/workspace/keyboardLed/inc/flash.h:
 

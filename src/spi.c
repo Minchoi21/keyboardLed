@@ -132,6 +132,26 @@ void SPI_txData8bit(SPI_TypeDef* SPIx, uint8_t *pData, uint32_t size)
 //	}
 }
 
+
+uint16_t SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in)
+{
+
+//	/* Check if SPI is enabled */
+//	SPI_CHECK_ENABLED(SPIx);
+
+	/* Wait for previous transmissions to complete if DMA TX enabled for SPI */
+	SPI_WAIT(SPIx);
+
+	/* Fill output buffer with data */
+	SPIx->DR = *data_in;
+
+	/* Wait on data in SPIx RX buffer */
+	while (!(SPIx->SR & SPI_SR_RXNE_Msk));
+	return SPIx->DR;
+}
+
+
+
 void SPI_txData16bit(SPI_TypeDef* SPIx, uint16_t *pData, uint32_t size)
 {
 	uint32_t i;

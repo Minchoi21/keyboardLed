@@ -31,7 +31,7 @@ void Delay (uint32_t nCount);
 int main(void)
 {
 	static uint8_t led = 2;
-	uint16_t var[2] = {0xAAFF, 0xBBCC} ;
+	uint16_t state = 0x00;
 	SYS_init();
 	STM_EVAL_initBoard();
 	for(;;)
@@ -43,9 +43,8 @@ int main(void)
 			TLC5971_setLed(1<<led++);
 			TLC5971_sendPacket(SPI2);
 //			SPI_txData8bit(SPI1, (uint8_t*)var, 4);
-			/* Send package */
-			SPI_DMA_transmit8bits(SPI1, (uint8_t*)var, NULL, 4);
 //			TLC5971_sendPacket(SPI1);
+			state = MAX7301_readData();
 		}
 	}
 }

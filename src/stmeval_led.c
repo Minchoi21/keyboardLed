@@ -91,9 +91,15 @@ void STM_EVAL_initBoard(void)
 	/* Reset PE3 to set low on CS_SPI for LIS3DSH */
 	GPIO_init(GPIOE, GPIO_Pin_3, GPIO_Mode_OUT, GPIO_OType_PP, GPIO_PuPd_UP, GPIO_Speed_Medium);
 	GPIO_resetPin(GPIOE, GPIO_Pin_3);
+	/* Configure Pin4 on PORTA for SPI_CS to control MAX7301 */
+	GPIO_init(GPIOA, GPIO_Pin_4, GPIO_Mode_OUT, GPIO_OType_PP, GPIO_PuPd_UP, GPIO_Speed_Medium);
+	GPIO_setPin(GPIOA, GPIO_Pin_4);
 	/* Configure SPI1 for MAX7301 I/O Expander on external Keyboard */
-	SPI_init(SPI1, SPI_PINSPACK_1, SPI_DATASIZE_8b);
-	SPI_DMA_init(SPI1);
+	SPI_init(SPI1, SPI_PINSPACK_1, SPI_DATASIZE_16b);
+//	SPI_DMA_init(SPI1);
+
+/* MAX7301 */
+	MAX7301_init();
 }
 
 ///**
