@@ -38,6 +38,7 @@ void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack, en_SPI_dataSize_t d
 	}
 
 //	SPIx->CR2 = SPI_CR2_SSOE|SPI_CR2_RXNEIE|SPI_CR2_TXEIE|SPI_CR2_FRF;
+
 	/* Enable SPIx */
 	SPIx->CR1 |= SPI_CR1_SPE;
 }
@@ -50,6 +51,7 @@ void SPI_initPinsPack(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack)
 			#if defined(GPIOA)
 				if (pinspack == SPI_PINSPACK_1) {
 					GPIO_initAlternate(GPIOA, GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7, GPIO_OType_PP, GPIO_PuPd_NOPULL, GPIO_Speed_High, GPIO_AF_5);
+//					GPIO_initAlternate(GPIOA, GPIO_Pin_4, GPIO_OType_PP, GPIO_PuPd_NOPULL, GPIO_Speed_High, GPIO_AF_5);
 				}
 			#endif
 			#if defined(GPIOB)
@@ -133,11 +135,10 @@ void SPI_txData8bit(SPI_TypeDef* SPIx, uint8_t *pData, uint32_t size)
 }
 
 
-uint16_t SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in)
+void SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in, uint16_t *data_out)
 {
-
-//	/* Check if SPI is enabled */
-//	SPI_CHECK_ENABLED(SPIx);
+	/* Check if SPI is enabled */
+	SPI_CHECK_ENABLED(SPIx);
 
 	/* Wait for previous transmissions to complete if DMA TX enabled for SPI */
 	SPI_WAIT(SPIx);
@@ -147,12 +148,12 @@ uint16_t SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in)
 
 	/* Wait on data in SPIx RX buffer */
 	while (!(SPIx->SR & SPI_SR_RXNE_Msk));
-	return SPIx->DR;
+	*data_out = SPIx->DR;
 }
 
 
 
-void SPI_txData16bit(SPI_TypeDef* SPIx, uint16_t *pData, uint32_t size)
+void SPI_txDataHalfWord(SPI_TypeDef* SPIx, uint16_t *pData, uint32_t size)
 {
 	uint32_t i;
 
@@ -168,5 +169,4 @@ void SPI_txData16bit(SPI_TypeDef* SPIx, uint16_t *pData, uint32_t size)
 		/* Wait for SPI to end everything */
 		SPI_WAIT(SPIx);
 	}
-
 }

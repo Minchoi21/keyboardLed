@@ -19,12 +19,14 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define SYS_TICK_DELAY_1 1000
-#define SYS_TICK_DELAY_2 800
+#define SYS_TICK_DELAY_2 500
+#define SYS_TICK_DELAY_3 20
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 BOOL SysTick_time1_flag;
 BOOL SysTick_time2_flag;
+BOOL SysTick_time3_flag;
 
 /* Private function prototypes -----------------------------------------------*/
 

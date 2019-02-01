@@ -20,6 +20,9 @@
 
 /* Define --------------------------------------------------------------------*/
 
+/* Define which keyboard to use */
+#define WORK_KEYBOARD
+
 #define CONFIGURATION_REGISTER 0x04
 
 #define MAX7301_INPUT_NO_PULLUP   0xAA

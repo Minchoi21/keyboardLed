@@ -74,6 +74,24 @@ typedef enum {
 /*!
  * @brief  Channel Bit definition for LED Driver
  */
+//typedef enum {
+//	LED_CH_1 =	0x0800U,        /*! Led channel 1 */
+//	LED_CH_2 =	0x0400U,       /*! Led channel 2 */
+//	LED_CH_3 =	0x0200U,       /*! Led channel 3 */
+//	LED_CH_4 =	0x0100U,       /*! Led channel 4 */
+//	LED_CH_5 =	0x0080U,       /*! Led channel 5 */
+//	LED_CH_6 = 	0x0040U,       /*! Led channel 6 */
+//	LED_CH_7 =	0x0020U,       /*! Led channel 7 */
+//	LED_CH_8 =	0x0010U,       /*! Led channel 8 */
+//	LED_CH_9 =	0x0008U,       /*! Led channel 9 */
+//	LED_CH_10 = 0x0004U,       /*! Led channel 10 */
+//	LED_CH_11 = 0x0002U,       /*! Led not used */
+//	LED_CH_12 = 0x0001U       /*! Led not used */
+//} en_TLC5971_led_t;
+
+/*!
+ * @brief  Channel Bit definition for LED Driver
+ */
 typedef enum {
 	LED_CH_12 = 0x0001U,       /*! Led not used */
 	LED_CH_11 = 0x0002U,       /*! Led not used */
@@ -86,7 +104,7 @@ typedef enum {
 	LED_CH_4 =	0x0100U,       /*! Led channel 4 */
 	LED_CH_3 =	0x0200U,       /*! Led channel 3 */
 	LED_CH_2 =	0x0400U,       /*! Led channel 2 */
-	LED_CH_1 =	0x0800U       /*! Led channel 1 */
+	LED_CH_1 =	0x0800U        /*! Led channel 1 */
 } en_TLC5971_led_t;
 
 /* 224-Bit Data Packet Configuration */

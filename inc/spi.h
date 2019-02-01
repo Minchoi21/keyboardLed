@@ -121,7 +121,7 @@ void SPI_txData8bit(SPI_TypeDef* SPIx, uint8_t* pData, uint32_t size);
  * @param  	*data_out: pointer to 16-bits data to receiving over SPIx
  * @return 	none
  */
-uint16_t SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in);
+void SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in, uint16_t *data_out);
 
 /*!
  * @brief Writes multiple bytes over SPI
@@ -131,7 +131,7 @@ uint16_t SPI_txRxDataHalfWord(SPI_TypeDef* SPIx, uint16_t *data_in);
  * @param	size: number of bytes to send over SPI
  * @return 	none
  */
-void SPI_txData16bit(SPI_TypeDef* SPIx, uint16_t* pData, uint32_t size);
+void SPI_txDataHalfWord(SPI_TypeDef* SPIx, uint16_t* pData, uint32_t size);
 
 /*!
  * @brief Enable SPI peripheral

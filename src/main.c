@@ -36,15 +36,19 @@ int main(void)
 	STM_EVAL_initBoard();
 	for(;;)
 	{
-		if(SysTick_time2_flag) {
-			SysTick_time2_flag = FALSE;
-			if(led >= (TLC5971_ALL_NUM_LED)) led = 2;
+
+		if(SysTick_time3_flag) {
+			SysTick_time3_flag = FALSE;
 			TLC5971_clrLedAll();
-			TLC5971_setLed(1<<led++);
-			TLC5971_sendPacket(SPI2);
-//			SPI_txData8bit(SPI1, (uint8_t*)var, 4);
-//			TLC5971_sendPacket(SPI1);
 			state = MAX7301_readData();
+			if(SysTick_time2_flag) {
+				SysTick_time2_flag = FALSE;
+				led++;
+				if(led >= (TLC5971_ALL_NUM_LED)) led = 2;
+			}
+			TLC5971_setLed(1<<led);
+			TLC5971_setLed(state);
+			TLC5971_sendPacket(SPI2);
 		}
 	}
 }
@@ -86,6 +90,8 @@ void EXTI0_IRQHandler(void) {
 void SysTick_Handler(void){
 	static uint32_t SysTick_time_1 = SYS_TICK_DELAY_1;
 	static uint32_t SysTick_time_2 = SYS_TICK_DELAY_2;
+	static uint32_t SysTick_time_3 = SYS_TICK_DELAY_3;
+
 
 	if(!SysTick_time_1){
 		SysTick_time_1 = SYS_TICK_DELAY_1;
@@ -99,6 +105,11 @@ void SysTick_Handler(void){
 		SysTick_time_2 = SYS_TICK_DELAY_2;
 		SysTick_time2_flag = TRUE;
 	}
+	if(!SysTick_time_3){
+		SysTick_time_3 = SYS_TICK_DELAY_3;
+		SysTick_time3_flag = TRUE;
+	}
 	SysTick_time_1--;
 	SysTick_time_2--;
+	SysTick_time_3--;
 }
