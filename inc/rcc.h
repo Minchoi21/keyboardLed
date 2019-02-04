@@ -32,6 +32,10 @@
 #define RCC_DMA1_CLK_ENABLE				SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_DMA1EN)
 #define RCC_DMA2_CLK_ENABLE				SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_DMA2EN)
 
+#define RCC_ADC1_CLK_ENABLE				SET_BIT(RCC->APB2ENR, RCC_APB2ENR_ADC1EN)
+#define RCC_ADC2_CLK_ENABLE				SET_BIT(RCC->APB2ENR, RCC_APB2ENR_ADC2EN)
+#define RCC_ADC3_CLK_ENABLE				SET_BIT(RCC->APB2ENR, RCC_APB2ENR_ADC3EN)
+
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -40,6 +44,7 @@ void RCC_enableGpioClock(void);
 void RCC_enableSysConfClock(void);
 void RCC_enableSpiClock(void);
 void RCC_enableDmaClock(void);
+void RCC_enableAdcClock(void);
 /* Private functions ---------------------------------------------------------*/
 
 #endif /* RCC_H_ */

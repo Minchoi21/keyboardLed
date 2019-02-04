@@ -100,5 +100,13 @@ void RCC_enableDmaClock(void)
 	RCC_DMA2_CLK_ENABLE;
 }
 
+/* Enable the ADC1, ADC2 and ADC3 Clock */
+void RCC_enableAdcClock(void)
+{
+	RCC_ADC1_CLK_ENABLE;
+	RCC_ADC2_CLK_ENABLE;
+	RCC_ADC3_CLK_ENABLE;
+}
+
 
 

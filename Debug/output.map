@@ -58,6 +58,148 @@ Discarded input sections
  .ARM.exidx     0x00000000        0x8 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
  .ARM.attributes
                 0x00000000       0x20 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .group         0x00000000        0xc src/adc.o
+ .text          0x00000000        0x0 src/adc.o
+ .data          0x00000000        0x0 src/adc.o
+ .bss           0x00000000        0x0 src/adc.o
+ .text.ADC_init
+                0x00000000       0x58 src/adc.o
+ .debug_info    0x00000000      0xc5d src/adc.o
+ .debug_abbrev  0x00000000      0x1f6 src/adc.o
+ .debug_aranges
+                0x00000000       0x20 src/adc.o
+ .debug_ranges  0x00000000       0x10 src/adc.o
+ .debug_macro   0x00000000      0x190 src/adc.o
+ .debug_macro   0x00000000      0xa66 src/adc.o
+ .debug_macro   0x00000000       0x2c src/adc.o
+ .debug_macro   0x00000000       0x2f src/adc.o
+ .debug_macro   0x00000000       0x22 src/adc.o
+ .debug_macro   0x00000000       0x87 src/adc.o
+ .debug_macro   0x00000000       0x51 src/adc.o
+ .debug_macro   0x00000000       0xef src/adc.o
+ .debug_macro   0x00000000       0x6a src/adc.o
+ .debug_macro   0x00000000      0x1df src/adc.o
+ .debug_macro   0x00000000       0x35 src/adc.o
+ .debug_macro   0x00000000       0x50 src/adc.o
+ .debug_macro   0x00000000      0xe66 src/adc.o
+ .debug_macro   0x00000000    0x15d08 src/adc.o
+ .debug_macro   0x00000000       0x43 src/adc.o
+ .debug_macro   0x00000000       0x58 src/adc.o
+ .debug_macro   0x00000000       0x17 src/adc.o
+ .debug_macro   0x00000000       0x35 src/adc.o
+ .debug_macro   0x00000000       0x9c src/adc.o
+ .debug_macro   0x00000000      0x174 src/adc.o
+ .debug_macro   0x00000000       0x58 src/adc.o
+ .debug_macro   0x00000000       0x1f src/adc.o
+ .debug_macro   0x00000000       0x43 src/adc.o
+ .debug_macro   0x00000000       0x20 src/adc.o
+ .debug_macro   0x00000000      0x18e src/adc.o
+ .debug_macro   0x00000000      0x330 src/adc.o
+ .debug_macro   0x00000000      0x1e1 src/adc.o
+ .debug_macro   0x00000000       0x7c src/adc.o
+ .debug_line    0x00000000      0x476 src/adc.o
+ .debug_str     0x00000000    0x8824f src/adc.o
+ .comment       0x00000000       0x7f src/adc.o
+ .debug_frame   0x00000000       0x38 src/adc.o
+ .ARM.attributes
+                0x00000000       0x39 src/adc.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .group         0x00000000        0xc src/adc_dma.o
+ .text          0x00000000        0x0 src/adc_dma.o
+ .data          0x00000000        0x0 src/adc_dma.o
+ .bss           0x00000000        0x0 src/adc_dma.o
+ .text.ADC_DMA_init
+                0x00000000       0x14 src/adc_dma.o
+ .debug_info    0x00000000      0xab2 src/adc_dma.o
+ .debug_abbrev  0x00000000      0x1e7 src/adc_dma.o
+ .debug_aranges
+                0x00000000       0x20 src/adc_dma.o
+ .debug_ranges  0x00000000       0x10 src/adc_dma.o
+ .debug_macro   0x00000000      0x19a src/adc_dma.o
+ .debug_macro   0x00000000      0xa66 src/adc_dma.o
+ .debug_macro   0x00000000       0x2c src/adc_dma.o
+ .debug_macro   0x00000000       0x2f src/adc_dma.o
+ .debug_macro   0x00000000       0x22 src/adc_dma.o
+ .debug_macro   0x00000000       0x87 src/adc_dma.o
+ .debug_macro   0x00000000       0x51 src/adc_dma.o
+ .debug_macro   0x00000000       0xef src/adc_dma.o
+ .debug_macro   0x00000000       0x6a src/adc_dma.o
+ .debug_macro   0x00000000      0x1df src/adc_dma.o
+ .debug_macro   0x00000000       0x35 src/adc_dma.o
+ .debug_macro   0x00000000       0x50 src/adc_dma.o
+ .debug_macro   0x00000000      0xe66 src/adc_dma.o
+ .debug_macro   0x00000000    0x15d08 src/adc_dma.o
+ .debug_macro   0x00000000       0x43 src/adc_dma.o
+ .debug_macro   0x00000000       0x58 src/adc_dma.o
+ .debug_macro   0x00000000       0x17 src/adc_dma.o
+ .debug_macro   0x00000000       0x35 src/adc_dma.o
+ .debug_macro   0x00000000       0x9c src/adc_dma.o
+ .debug_macro   0x00000000      0x174 src/adc_dma.o
+ .debug_macro   0x00000000       0x58 src/adc_dma.o
+ .debug_macro   0x00000000       0x1f src/adc_dma.o
+ .debug_macro   0x00000000       0x43 src/adc_dma.o
+ .debug_macro   0x00000000       0x20 src/adc_dma.o
+ .debug_macro   0x00000000      0x18e src/adc_dma.o
+ .debug_macro   0x00000000      0x330 src/adc_dma.o
+ .debug_macro   0x00000000      0x1e1 src/adc_dma.o
+ .debug_macro   0x00000000       0x7c src/adc_dma.o
+ .debug_line    0x00000000      0x47e src/adc_dma.o
+ .debug_str     0x00000000    0x88167 src/adc_dma.o
+ .comment       0x00000000       0x7f src/adc_dma.o
+ .debug_frame   0x00000000       0x38 src/adc_dma.o
+ .ARM.attributes
+                0x00000000       0x39 src/adc_dma.o
  .group         0x00000000        0xc src/dma.o
  .group         0x00000000        0xc src/dma.o
  .group         0x00000000        0xc src/dma.o
@@ -78,6 +220,20 @@ Discarded input sections
  .bss           0x00000000        0x0 src/dma.o
  .text.DMA_deinit
                 0x00000000       0x48 src/dma.o
+ .debug_macro   0x00000000      0xa66 src/dma.o
+ .debug_macro   0x00000000       0x2c src/dma.o
+ .debug_macro   0x00000000       0x2f src/dma.o
+ .debug_macro   0x00000000       0x22 src/dma.o
+ .debug_macro   0x00000000       0x87 src/dma.o
+ .debug_macro   0x00000000       0x51 src/dma.o
+ .debug_macro   0x00000000       0xef src/dma.o
+ .debug_macro   0x00000000       0x6a src/dma.o
+ .debug_macro   0x00000000      0x1df src/dma.o
+ .debug_macro   0x00000000       0x35 src/dma.o
+ .debug_macro   0x00000000       0x50 src/dma.o
+ .debug_macro   0x00000000      0xe66 src/dma.o
+ .debug_macro   0x00000000    0x15d08 src/dma.o
+ .debug_macro   0x00000000       0x43 src/dma.o
  .group         0x00000000        0xc src/exti.o
  .group         0x00000000        0xc src/exti.o
  .group         0x00000000        0xc src/exti.o
@@ -229,6 +385,19 @@ Discarded input sections
  .debug_macro   0x00000000      0xe66 src/main.o
  .debug_macro   0x00000000    0x15d08 src/main.o
  .debug_macro   0x00000000       0x43 src/main.o
+ .debug_macro   0x00000000       0x58 src/main.o
+ .debug_macro   0x00000000       0x17 src/main.o
+ .debug_macro   0x00000000       0x35 src/main.o
+ .debug_macro   0x00000000       0x9c src/main.o
+ .debug_macro   0x00000000      0x174 src/main.o
+ .debug_macro   0x00000000       0x58 src/main.o
+ .debug_macro   0x00000000       0x1f src/main.o
+ .debug_macro   0x00000000       0x43 src/main.o
+ .debug_macro   0x00000000       0x20 src/main.o
+ .debug_macro   0x00000000      0x18e src/main.o
+ .debug_macro   0x00000000      0x330 src/main.o
+ .debug_macro   0x00000000      0x1e1 src/main.o
+ .debug_macro   0x00000000       0x7c src/main.o
  .group         0x00000000        0xc src/max7301.o
  .group         0x00000000        0xc src/max7301.o
  .group         0x00000000        0xc src/max7301.o
@@ -290,7 +459,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1e1 src/max7301.o
  .debug_macro   0x00000000       0x70 src/max7301.o
  .debug_macro   0x00000000       0x76 src/max7301.o
- .debug_macro   0x00000000       0x6a src/max7301.o
+ .debug_macro   0x00000000       0x7c src/max7301.o
  .group         0x00000000        0xc src/nvic.o
  .group         0x00000000        0xc src/nvic.o
  .group         0x00000000        0xc src/nvic.o
@@ -346,6 +515,8 @@ Discarded input sections
                 0x00000000        0xe src/rcc.o
  .text.RCC_enableDmaClock
                 0x00000000       0x2c src/rcc.o
+ .text.RCC_enableAdcClock
+                0x00000000       0x38 src/rcc.o
  .debug_macro   0x00000000      0xa66 src/rcc.o
  .debug_macro   0x00000000       0x2c src/rcc.o
  .debug_macro   0x00000000       0x2f src/rcc.o
@@ -464,7 +635,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x70 src/spi_dma.o
  .debug_macro   0x00000000       0x28 src/spi_dma.o
  .debug_macro   0x00000000       0x76 src/spi_dma.o
- .debug_macro   0x00000000       0x6a src/spi_dma.o
+ .debug_macro   0x00000000       0x7c src/spi_dma.o
  .group         0x00000000        0xc src/stm32f4xx_it.o
  .group         0x00000000        0xc src/stm32f4xx_it.o
  .group         0x00000000        0xc src/stm32f4xx_it.o
@@ -577,7 +748,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x330 src/stmeval_led.o
  .debug_macro   0x00000000      0x1e1 src/stmeval_led.o
  .debug_macro   0x00000000       0x76 src/stmeval_led.o
- .debug_macro   0x00000000       0x6a src/stmeval_led.o
+ .debug_macro   0x00000000       0x7c src/stmeval_led.o
  .debug_macro   0x00000000       0x3a src/stmeval_led.o
  .debug_macro   0x00000000       0x64 src/stmeval_led.o
  .debug_macro   0x00000000       0x4c src/stmeval_led.o
@@ -770,7 +941,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x70 src/sysinit.o
  .debug_macro   0x00000000       0x2e src/sysinit.o
  .debug_macro   0x00000000       0x76 src/sysinit.o
- .debug_macro   0x00000000       0x6a src/sysinit.o
+ .debug_macro   0x00000000       0x7c src/sysinit.o
  .debug_macro   0x00000000       0x3a src/sysinit.o
  .debug_macro   0x00000000       0x64 src/sysinit.o
  .debug_macro   0x00000000       0x4c src/sysinit.o
@@ -871,7 +1042,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x70 src/tlc5971.o
  .debug_macro   0x00000000       0x28 src/tlc5971.o
  .debug_macro   0x00000000       0x76 src/tlc5971.o
- .debug_macro   0x00000000       0x6a src/tlc5971.o
+ .debug_macro   0x00000000       0x7c src/tlc5971.o
  .debug_macro   0x00000000       0x3a src/tlc5971.o
  .text          0x00000000       0x14 startup/startup_stm32.o
  .data          0x00000000        0x0 startup/startup_stm32.o
@@ -960,6 +1131,8 @@ Linker script and memory map
 LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
 LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+LOAD src/adc.o
+LOAD src/adc_dma.o
 LOAD src/dma.o
 LOAD src/exti.o
 LOAD src/flash.o
@@ -1478,7 +1651,7 @@ LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16
                 0x00000501       0x22 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(keyboardLed.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x79a1
+.debug_info     0x00000000     0x79b2
  .debug_info    0x00000000      0x7a8 src/dma.o
  .debug_info    0x000007a8      0x1fb src/exti.o
  .debug_info    0x000009a3      0x198 src/flash.o
@@ -1486,14 +1659,14 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
  .debug_info    0x0000120d      0xfca src/main.o
  .debug_info    0x000021d7      0xb55 src/max7301.o
  .debug_info    0x00002d2c      0x6e4 src/nvic.o
- .debug_info    0x00003410      0x318 src/rcc.o
- .debug_info    0x00003728      0x50b src/spi.o
- .debug_info    0x00003c33      0xecf src/spi_dma.o
- .debug_info    0x00004b02      0xd3f src/stmeval_led.o
- .debug_info    0x00005841      0xf8a src/sysinit.o
- .debug_info    0x000067cb      0x4fb src/system_stm32f4xx.o
- .debug_info    0x00006cc6      0xcb9 src/tlc5971.o
- .debug_info    0x0000797f       0x22 startup/startup_stm32.o
+ .debug_info    0x00003410      0x329 src/rcc.o
+ .debug_info    0x00003739      0x50b src/spi.o
+ .debug_info    0x00003c44      0xecf src/spi_dma.o
+ .debug_info    0x00004b13      0xd3f src/stmeval_led.o
+ .debug_info    0x00005852      0xf8a src/sysinit.o
+ .debug_info    0x000067dc      0x4fb src/system_stm32f4xx.o
+ .debug_info    0x00006cd7      0xcb9 src/tlc5971.o
+ .debug_info    0x00007990       0x22 startup/startup_stm32.o
 
 .debug_abbrev   0x00000000     0x18b5
  .debug_abbrev  0x00000000      0x1d7 src/dma.o
@@ -1512,7 +1685,7 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
  .debug_abbrev  0x000015f7      0x2ac src/tlc5971.o
  .debug_abbrev  0x000018a3       0x12 startup/startup_stm32.o
 
-.debug_aranges  0x00000000      0x3c0
+.debug_aranges  0x00000000      0x3c8
  .debug_aranges
                 0x00000000       0x88 src/dma.o
  .debug_aranges
@@ -1528,23 +1701,23 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
  .debug_aranges
                 0x000001a0       0x40 src/nvic.o
  .debug_aranges
-                0x000001e0       0x40 src/rcc.o
+                0x000001e0       0x48 src/rcc.o
  .debug_aranges
-                0x00000220       0x40 src/spi.o
+                0x00000228       0x40 src/spi.o
  .debug_aranges
-                0x00000260       0x40 src/spi_dma.o
+                0x00000268       0x40 src/spi_dma.o
  .debug_aranges
-                0x000002a0       0x50 src/stmeval_led.o
+                0x000002a8       0x50 src/stmeval_led.o
  .debug_aranges
-                0x000002f0       0x30 src/sysinit.o
+                0x000002f8       0x30 src/sysinit.o
  .debug_aranges
-                0x00000320       0x28 src/system_stm32f4xx.o
+                0x00000328       0x28 src/system_stm32f4xx.o
  .debug_aranges
-                0x00000348       0x50 src/tlc5971.o
+                0x00000350       0x50 src/tlc5971.o
  .debug_aranges
-                0x00000398       0x28 startup/startup_stm32.o
+                0x000003a0       0x28 startup/startup_stm32.o
 
-.debug_ranges   0x00000000      0x2d8
+.debug_ranges   0x00000000      0x2e0
  .debug_ranges  0x00000000       0x78 src/dma.o
  .debug_ranges  0x00000078       0x18 src/exti.o
  .debug_ranges  0x00000090       0x10 src/flash.o
@@ -1552,71 +1725,44 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
  .debug_ranges  0x000000f0       0x30 src/main.o
  .debug_ranges  0x00000120       0x20 src/max7301.o
  .debug_ranges  0x00000140       0x30 src/nvic.o
- .debug_ranges  0x00000170       0x30 src/rcc.o
- .debug_ranges  0x000001a0       0x30 src/spi.o
- .debug_ranges  0x000001d0       0x30 src/spi_dma.o
- .debug_ranges  0x00000200       0x40 src/stmeval_led.o
- .debug_ranges  0x00000240       0x20 src/sysinit.o
- .debug_ranges  0x00000260       0x18 src/system_stm32f4xx.o
- .debug_ranges  0x00000278       0x40 src/tlc5971.o
- .debug_ranges  0x000002b8       0x20 startup/startup_stm32.o
+ .debug_ranges  0x00000170       0x38 src/rcc.o
+ .debug_ranges  0x000001a8       0x30 src/spi.o
+ .debug_ranges  0x000001d8       0x30 src/spi_dma.o
+ .debug_ranges  0x00000208       0x40 src/stmeval_led.o
+ .debug_ranges  0x00000248       0x20 src/sysinit.o
+ .debug_ranges  0x00000268       0x18 src/system_stm32f4xx.o
+ .debug_ranges  0x00000280       0x40 src/tlc5971.o
+ .debug_ranges  0x000002c0       0x20 startup/startup_stm32.o
 
-.debug_macro    0x00000000    0x19b74
+.debug_macro    0x00000000     0x15c6
  .debug_macro   0x00000000       0xe5 src/dma.o
- .debug_macro   0x000000e5      0xa66 src/dma.o
- .debug_macro   0x00000b4b       0x2c src/dma.o
- .debug_macro   0x00000b77       0x2f src/dma.o
- .debug_macro   0x00000ba6       0x22 src/dma.o
- .debug_macro   0x00000bc8       0x87 src/dma.o
- .debug_macro   0x00000c4f       0x51 src/dma.o
- .debug_macro   0x00000ca0       0xef src/dma.o
- .debug_macro   0x00000d8f       0x6a src/dma.o
- .debug_macro   0x00000df9      0x1df src/dma.o
- .debug_macro   0x00000fd8       0x35 src/dma.o
- .debug_macro   0x0000100d       0x50 src/dma.o
- .debug_macro   0x0000105d      0xe66 src/dma.o
- .debug_macro   0x00001ec3    0x15d08 src/dma.o
- .debug_macro   0x00017bcb       0x43 src/dma.o
- .debug_macro   0x00017c0e       0x70 src/dma.o
- .debug_macro   0x00017c7e       0xd4 src/exti.o
- .debug_macro   0x00017d52       0xd4 src/flash.o
- .debug_macro   0x00017e26       0xd9 src/gpio.o
- .debug_macro   0x00017eff       0x6a src/gpio.o
- .debug_macro   0x00017f69      0x1ff src/main.o
- .debug_macro   0x00018168       0x58 src/main.o
- .debug_macro   0x000181c0       0x17 src/main.o
- .debug_macro   0x000181d7       0x35 src/main.o
- .debug_macro   0x0001820c       0x9c src/main.o
- .debug_macro   0x000182a8      0x174 src/main.o
- .debug_macro   0x0001841c       0x58 src/main.o
- .debug_macro   0x00018474       0x1f src/main.o
- .debug_macro   0x00018493       0x43 src/main.o
- .debug_macro   0x000184d6       0x20 src/main.o
- .debug_macro   0x000184f6      0x18e src/main.o
- .debug_macro   0x00018684      0x330 src/main.o
- .debug_macro   0x000189b4      0x1e1 src/main.o
- .debug_macro   0x00018b95       0x70 src/main.o
- .debug_macro   0x00018c05       0x2e src/main.o
- .debug_macro   0x00018c33       0x76 src/main.o
- .debug_macro   0x00018ca9       0x6a src/main.o
- .debug_macro   0x00018d13       0x3a src/main.o
- .debug_macro   0x00018d4d       0x64 src/main.o
- .debug_macro   0x00018db1       0x4c src/main.o
- .debug_macro   0x00018dfd       0x16 src/main.o
- .debug_macro   0x00018e13      0x1c0 src/max7301.o
- .debug_macro   0x00018fd3       0x28 src/max7301.o
- .debug_macro   0x00018ffb       0x5e src/max7301.o
- .debug_macro   0x00019059       0xd4 src/nvic.o
- .debug_macro   0x0001912d       0xd9 src/rcc.o
- .debug_macro   0x00019206       0x64 src/rcc.o
- .debug_macro   0x0001926a       0xe2 src/spi.o
- .debug_macro   0x0001934c      0x1b1 src/spi_dma.o
- .debug_macro   0x000194fd      0x1dc src/stmeval_led.o
- .debug_macro   0x000196d9      0x1ff src/sysinit.o
- .debug_macro   0x000198d8       0xdc src/system_stm32f4xx.o
- .debug_macro   0x000199b4      0x1c0 src/tlc5971.o
+ .debug_macro   0x000000e5       0x70 src/dma.o
+ .debug_macro   0x00000155       0xd4 src/exti.o
+ .debug_macro   0x00000229       0xd4 src/flash.o
+ .debug_macro   0x000002fd       0xd9 src/gpio.o
+ .debug_macro   0x000003d6       0x6a src/gpio.o
+ .debug_macro   0x00000440      0x1ff src/main.o
+ .debug_macro   0x0000063f       0x70 src/main.o
+ .debug_macro   0x000006af       0x2e src/main.o
+ .debug_macro   0x000006dd       0x76 src/main.o
+ .debug_macro   0x00000753       0x3a src/main.o
+ .debug_macro   0x0000078d       0x64 src/main.o
+ .debug_macro   0x000007f1       0x4c src/main.o
+ .debug_macro   0x0000083d       0x16 src/main.o
+ .debug_macro   0x00000853      0x1c0 src/max7301.o
+ .debug_macro   0x00000a13       0x28 src/max7301.o
+ .debug_macro   0x00000a3b       0x5e src/max7301.o
+ .debug_macro   0x00000a99       0xd4 src/nvic.o
+ .debug_macro   0x00000b6d       0xd9 src/rcc.o
+ .debug_macro   0x00000c46       0x76 src/rcc.o
+ .debug_macro   0x00000cbc       0xe2 src/spi.o
+ .debug_macro   0x00000d9e      0x1b1 src/spi_dma.o
+ .debug_macro   0x00000f4f      0x1dc src/stmeval_led.o
+ .debug_macro   0x0000112b      0x1ff src/sysinit.o
+ .debug_macro   0x0000132a       0xdc src/system_stm32f4xx.o
+ .debug_macro   0x00001406      0x1c0 src/tlc5971.o
 
-.debug_line     0x00000000     0x426f
+.debug_line     0x00000000     0x4283
  .debug_line    0x00000000      0x502 src/dma.o
  .debug_line    0x00000502      0x401 src/exti.o
  .debug_line    0x00000903      0x3e3 src/flash.o
@@ -1624,16 +1770,16 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
  .debug_line    0x00001199      0x562 src/main.o
  .debug_line    0x000016fb      0x4e8 src/max7301.o
  .debug_line    0x00001be3      0x44b src/nvic.o
- .debug_line    0x0000202e      0x44a src/rcc.o
- .debug_line    0x00002478      0x4b9 src/spi.o
- .debug_line    0x00002931      0x528 src/spi_dma.o
- .debug_line    0x00002e59      0x540 src/stmeval_led.o
- .debug_line    0x00003399      0x51f src/sysinit.o
- .debug_line    0x000038b8      0x3e7 src/system_stm32f4xx.o
- .debug_line    0x00003c9f      0x554 src/tlc5971.o
- .debug_line    0x000041f3       0x7c startup/startup_stm32.o
+ .debug_line    0x0000202e      0x45e src/rcc.o
+ .debug_line    0x0000248c      0x4b9 src/spi.o
+ .debug_line    0x00002945      0x528 src/spi_dma.o
+ .debug_line    0x00002e6d      0x540 src/stmeval_led.o
+ .debug_line    0x000033ad      0x51f src/sysinit.o
+ .debug_line    0x000038cc      0x3e7 src/system_stm32f4xx.o
+ .debug_line    0x00003cb3      0x554 src/tlc5971.o
+ .debug_line    0x00004207       0x7c startup/startup_stm32.o
 
-.debug_str      0x00000000    0x89dc1
+.debug_str      0x00000000    0x89e8e
  .debug_str     0x00000000    0x84dea src/dma.o
                               0x84fad (size before relaxing)
  .debug_str     0x00084dea       0xc0 src/exti.o
@@ -1642,27 +1788,27 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
                               0x843cf (size before relaxing)
  .debug_str     0x00084ef1      0x5a6 src/gpio.o
                               0x84974 (size before relaxing)
- .debug_str     0x00085497     0x419a src/main.o
-                              0x891b4 (size before relaxing)
- .debug_str     0x00089631       0x6b src/max7301.o
-                              0x88920 (size before relaxing)
- .debug_str     0x0008969c       0xbc src/nvic.o
+ .debug_str     0x00085497     0x4254 src/main.o
+                              0x8926e (size before relaxing)
+ .debug_str     0x000896eb       0x6b src/max7301.o
+                              0x889da (size before relaxing)
+ .debug_str     0x00089756       0xbc src/nvic.o
                               0x849bd (size before relaxing)
- .debug_str     0x00089758       0x6d src/rcc.o
-                              0x848ee (size before relaxing)
- .debug_str     0x000897c5      0x16e src/spi.o
+ .debug_str     0x00089812       0x80 src/rcc.o
+                              0x849bb (size before relaxing)
+ .debug_str     0x00089892      0x16e src/spi.o
                               0x8499c (size before relaxing)
- .debug_str     0x00089933       0xff src/spi_dma.o
-                              0x88a07 (size before relaxing)
- .debug_str     0x00089a32       0xc0 src/stmeval_led.o
-                              0x88d22 (size before relaxing)
- .debug_str     0x00089af2       0x4c src/sysinit.o
-                              0x8914e (size before relaxing)
- .debug_str     0x00089b3e       0xa8 src/system_stm32f4xx.o
+ .debug_str     0x00089a00       0xff src/spi_dma.o
+                              0x88ac1 (size before relaxing)
+ .debug_str     0x00089aff       0xc0 src/stmeval_led.o
+                              0x88ddc (size before relaxing)
+ .debug_str     0x00089bbf       0x4c src/sysinit.o
+                              0x89208 (size before relaxing)
+ .debug_str     0x00089c0b       0xa8 src/system_stm32f4xx.o
                               0x8457b (size before relaxing)
- .debug_str     0x00089be6      0x1b1 src/tlc5971.o
-                              0x88980 (size before relaxing)
- .debug_str     0x00089d97       0x2a startup/startup_stm32.o
+ .debug_str     0x00089cb3      0x1b1 src/tlc5971.o
+                              0x88a3a (size before relaxing)
+ .debug_str     0x00089e64       0x2a startup/startup_stm32.o
                                  0x56 (size before relaxing)
 
 .comment        0x00000000       0x7e
@@ -1682,7 +1828,7 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
  .comment       0x0000007e       0x7f src/system_stm32f4xx.o
  .comment       0x0000007e       0x7f src/tlc5971.o
 
-.debug_frame    0x00000000      0xcdc
+.debug_frame    0x00000000      0xcfc
  .debug_frame   0x00000000      0x208 src/dma.o
  .debug_frame   0x00000208       0x58 src/exti.o
  .debug_frame   0x00000260       0x30 src/flash.o
@@ -1690,16 +1836,16 @@ OUTPUT(keyboardLed.elf elf32-littlearm)
  .debug_frame   0x000003fc       0xb8 src/main.o
  .debug_frame   0x000004b4       0x6c src/max7301.o
  .debug_frame   0x00000520       0xc4 src/nvic.o
- .debug_frame   0x000005e4       0xac src/rcc.o
- .debug_frame   0x00000690       0xd4 src/spi.o
- .debug_frame   0x00000764       0xc8 src/spi_dma.o
- .debug_frame   0x0000082c      0x10c src/stmeval_led.o
- .debug_frame   0x00000938       0x78 src/sysinit.o
- .debug_frame   0x000009b0       0x58 src/system_stm32f4xx.o
- .debug_frame   0x00000a08      0x114 src/tlc5971.o
- .debug_frame   0x00000b1c       0x2c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-init.o)
- .debug_frame   0x00000b48       0x5c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00000ba4       0x20 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-atexit.o)
- .debug_frame   0x00000bc4       0x34 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-fini.o)
- .debug_frame   0x00000bf8       0xb0 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-lock.o)
- .debug_frame   0x00000ca8       0x34 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x000005e4       0xcc src/rcc.o
+ .debug_frame   0x000006b0       0xd4 src/spi.o
+ .debug_frame   0x00000784       0xc8 src/spi_dma.o
+ .debug_frame   0x0000084c      0x10c src/stmeval_led.o
+ .debug_frame   0x00000958       0x78 src/sysinit.o
+ .debug_frame   0x000009d0       0x58 src/system_stm32f4xx.o
+ .debug_frame   0x00000a28      0x114 src/tlc5971.o
+ .debug_frame   0x00000b3c       0x2c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-init.o)
+ .debug_frame   0x00000b68       0x5c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000bc4       0x20 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-atexit.o)
+ .debug_frame   0x00000be4       0x34 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-fini.o)
+ .debug_frame   0x00000c18       0xb0 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-lock.o)
+ .debug_frame   0x00000cc8       0x34 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.16.0.201807130628/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc.a(lib_a-__atexit.o)

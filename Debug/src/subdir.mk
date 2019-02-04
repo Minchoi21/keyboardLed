@@ -4,6 +4,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/adc.c \
+../src/adc_dma.c \
 ../src/dma.c \
 ../src/exti.c \
 ../src/flash.c \
@@ -22,6 +24,8 @@ C_SRCS += \
 ../src/tlc5971.c 
 
 OBJS += \
+./src/adc.o \
+./src/adc_dma.o \
 ./src/dma.o \
 ./src/exti.o \
 ./src/flash.o \
@@ -40,6 +44,8 @@ OBJS += \
 ./src/tlc5971.o 
 
 C_DEPS += \
+./src/adc.d \
+./src/adc_dma.d \
 ./src/dma.d \
 ./src/exti.d \
 ./src/flash.d \

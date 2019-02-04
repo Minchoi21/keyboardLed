@@ -1,3 +1,5 @@
+"src/adc.o"
+"src/adc_dma.o"
 "src/dma.o"
 "src/exti.o"
 "src/flash.o"
