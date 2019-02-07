@@ -30,24 +30,31 @@ void Delay (uint32_t nCount);
 
 int main(void)
 {
-	static uint8_t led = 2;
-	uint16_t state = 0x00;
+	static uint8_t led;
+	static uint16_t button_keyboard;
 	SYS_init();
 	STM_EVAL_initBoard();
 	for(;;)
 	{
+		if(SysTick_time1_flag) {
+			SysTick_time1_flag = FALSE;
+				STM_EVAL_ledToggle(GPIOD, GPIO_Pin_13);
+		}
 
 		if(SysTick_time3_flag) {
 			SysTick_time3_flag = FALSE;
-			TLC5971_clrLedAll();
-			state = MAX7301_readData();
+
+			button_keyboard = MAX7301_readData();
+
 			if(SysTick_time2_flag) {
 				SysTick_time2_flag = FALSE;
+				if(led >= (TLC5971_ALL_NUM_LED-2)) led = 0x00;
 				led++;
-				if(led >= (TLC5971_ALL_NUM_LED)) led = 2;
 			}
+			TLC5971_setLuminosity(126);
+			TLC5971_clrLedAll();
 			TLC5971_setLed(1<<led);
-			TLC5971_setLed(state);
+			TLC5971_setLed(button_keyboard);
 			TLC5971_sendPacket(SPI2);
 		}
 	}
@@ -96,10 +103,6 @@ void SysTick_Handler(void){
 	if(!SysTick_time_1){
 		SysTick_time_1 = SYS_TICK_DELAY_1;
 		SysTick_time1_flag = TRUE;
-//		STM_EVAL_ledToggle(GPIOD, GPIO_Pin_12);
-		STM_EVAL_ledToggle(GPIOD, GPIO_Pin_13);
-//		STM_EVAL_ledToggle(GPIOD, GPIO_Pin_14);
-
 	}
 	if(!SysTick_time_2){
 		SysTick_time_2 = SYS_TICK_DELAY_2;

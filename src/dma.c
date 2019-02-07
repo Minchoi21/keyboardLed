@@ -110,31 +110,34 @@ void DMA_deinit(DMA_Stream_TypeDef* DMAy_Streamx)
 /*****************************************************************/
 /*                 DMA INTERRUPT USER CALLBACKS                  */
 /*****************************************************************/
-void TM_DMA_TransferCompleteHandler(DMA_Stream_TypeDef* DMA_Stream) {
+void DMA_transferCompleteHandler(DMA_Stream_TypeDef* DMA_Stream) {
 	/* NOTE: This function should not be modified, when the callback is needed,
             the TM_DMA_TransferCompleteHandler could be implemented in the user file
 	*/
+	if (DMA_Stream == DMA2_Stream0) {
+			st_dma_flags.adc_dma_tcmpl = TRUE;
+	}
 }
 
-void TM_DMA_HalfTransferCompleteHandler(DMA_Stream_TypeDef* DMA_Stream) {
+void DMA_halfTransferCompleteHandler(DMA_Stream_TypeDef* DMA_Stream) {
 	/* NOTE: This function should not be modified, when the callback is needed,
             the TM_DMA_HalfTransferCompleteHandler could be implemented in the user file
 	*/
 }
 
-void TM_DMA_TransferErrorHandler(DMA_Stream_TypeDef* DMA_Stream) {
+void DMA_transferErrorHandler(DMA_Stream_TypeDef* DMA_Stream) {
 	/* NOTE: This function should not be modified, when the callback is needed,
             the TM_DMA_TransferErrorHandler could be implemented in the user file
 	*/
 }
 
-void TM_DMA_DirectModeErrorHandler(DMA_Stream_TypeDef* DMA_Stream) {
+void DMA_directModeErrorHandler(DMA_Stream_TypeDef* DMA_Stream) {
 	/* NOTE: This function should not be modified, when the callback is needed,
             the TM_DMA_DirectModeErrorHandler could be implemented in the user file
 	*/
 }
 
-void TM_DMA_FIFOErrorHandler(DMA_Stream_TypeDef* DMA_Stream) {
+void DMA_FIFOErrorHandler(DMA_Stream_TypeDef* DMA_Stream) {
 	/* NOTE: This function should not be modified, when the callback is needed,
             the TM_DMA_FIFOErrorHandler could be implemented in the user file
 	*/
@@ -142,29 +145,29 @@ void TM_DMA_FIFOErrorHandler(DMA_Stream_TypeDef* DMA_Stream) {
 
 
 /* DMA Interrupt Functions for DMA1 Stream 4 */
-static void TM_DMA_INT_ProcessInterrupt(DMA_Stream_TypeDef* DMA_Stream) {
+static void DMA_INT_processInterrupt(DMA_Stream_TypeDef* DMA_Stream) {
 
 	/* Call user callback function */
 
 	/* Check transfer complete flag */
 	if (DMA_Stream->CR & DMA_SxCR_TCIE) {
-		TM_DMA_TransferCompleteHandler(DMA_Stream);
+		DMA_transferCompleteHandler(DMA_Stream);
 	}
 	/* Check half-transfer complete flag */
 	if ((DMA_Stream->CR & DMA_SxCR_HTIE)) {
-		TM_DMA_HalfTransferCompleteHandler(DMA_Stream);
+		DMA_halfTransferCompleteHandler(DMA_Stream);
 	}
 	/* Check transfer error flag */
 	if ((DMA_Stream->CR & DMA_SxCR_TEIE)) {
-		TM_DMA_TransferErrorHandler(DMA_Stream);
+		DMA_transferErrorHandler(DMA_Stream);
 	}
 	/* Check direct error flag */
 	if ((DMA_Stream->CR & DMA_SxCR_DMEIE)) {
-		TM_DMA_DirectModeErrorHandler(DMA_Stream);
+		DMA_directModeErrorHandler(DMA_Stream);
 	}
 	/* Check FIFO error flag */
 	if ((DMA_Stream->FCR & DMA_SxFCR_FEIE)) {
-		TM_DMA_FIFOErrorHandler(DMA_Stream);
+		DMA_FIFOErrorHandler(DMA_Stream);
 	}
 }
 
@@ -176,7 +179,7 @@ void DMA1_Stream3_IRQHandler(void) {
 	DMA_clearFlag(DMA1_Stream3, DMA_FLAG_ALL);
 //	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
 	/* Call user function */
-	TM_DMA_INT_ProcessInterrupt(DMA1_Stream3);
+	DMA_INT_processInterrupt(DMA1_Stream3);
 
 }
 #endif
@@ -187,7 +190,18 @@ void DMA1_Stream4_IRQHandler(void) {
 	DMA_clearFlag(DMA1_Stream4, DMA_FLAG_ALL);
 //	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
 	/* Call user function */
-	TM_DMA_INT_ProcessInterrupt(DMA1_Stream4);
+	DMA_INT_processInterrupt(DMA1_Stream4);
+
+}
+#endif
+#ifndef DMA2_STREAM0_DISABLE_IRQHANDLER
+void DMA2_Stream0_IRQHandler(void) {
+	NVIC_ClearPendingIRQ(DMA2_Stream0_IRQn);
+	/* Clear all flags */
+	DMA_clearFlag(DMA2_Stream0, DMA_FLAG_ALL);
+//	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
+	/* Call user function */
+	DMA_INT_processInterrupt(DMA2_Stream0);
 
 }
 #endif
@@ -198,7 +212,7 @@ void DMA2_Stream2_IRQHandler(void) {
 	DMA_clearFlag(DMA2_Stream2, DMA_FLAG_ALL);
 //	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
 	/* Call user function */
-	TM_DMA_INT_ProcessInterrupt(DMA2_Stream2);
+	DMA_INT_processInterrupt(DMA2_Stream2);
 
 }
 #endif
@@ -209,7 +223,7 @@ void DMA2_Stream3_IRQHandler(void) {
 	DMA_clearFlag(DMA2_Stream3, DMA_FLAG_ALL);
 //	DMA1->HIFCR |= DMA_HIFCR_CFEIF4 | DMA_HIFCR_CDMEIF4 | DMA_HIFCR_CTEIF4 | DMA_HIFCR_CHTIF4| DMA_HIFCR_CTCIF4;
 	/* Call user function */
-	TM_DMA_INT_ProcessInterrupt(DMA2_Stream3);
+	DMA_INT_processInterrupt(DMA2_Stream3);
 
 }
 #endif

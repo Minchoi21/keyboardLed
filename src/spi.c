@@ -26,7 +26,7 @@ void SPI_init(SPI_TypeDef* SPIx, en_SPI_PinsPack_t pinspack, en_SPI_dataSize_t d
 	SPIx->CR1 &= ~SPI_CR1_SPE;
 
 	/* Master selection, BR: Fpclk/SPI_BR_DIV_xxx, CPOL and CPHA at zero (rising first edge) */
-	SPIx->CR1 = SPI_CR1_MSTR|(SPI_BR_DIV_64 << SPI_CR1_BR_Pos)|SPI_CR1_SSM|SPI_CR1_SSI; //|SPI_CR1_SSM|SPI_CR1_SSI
+	SPIx->CR1 = SPI_CR1_MSTR|(SPI_BR_DIV_32 << SPI_CR1_BR_Pos)|SPI_CR1_SSM|SPI_CR1_SSI; //|SPI_CR1_SSM|SPI_CR1_SSI
 
 	/* Set data frame format */
 	if (data_size == SPI_DATASIZE_16b) {

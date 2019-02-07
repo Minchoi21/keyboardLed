@@ -100,6 +100,10 @@ void STM_EVAL_initBoard(void)
 
 /* MAX7301 */
 	MAX7301_init();
+
+/* ADC1 */
+	ADC_DMA_init(ADC1, adc_measure);
+	ADC_startConv(ADC1);
 }
 
 ///**

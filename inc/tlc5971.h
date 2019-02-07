@@ -15,24 +15,9 @@
 
 
 /* Define --------------------------------------------------------------------*/
-/******************** Channel Bit definition for LED Driver  ********************/
-//#define LED_CH_1                          	0x0001       /*!<Led channel 1 */
-//#define LED_CH_2                          	0x0002       /*!<Led channel 2 */
-//#define LED_CH_3                          	0x0004       /*!<Led channel 3 */
-//#define LED_CH_4                        	0x0008       /*!<Led channel 4 */
-//#define LED_CH_5                         	0x0010       /*!<Led channel 5 */
-//#define LED_CH_6	                       	0x0020       /*!<Led channel 6 */
-//#define LED_CH_7                       		0x0040       /*!<Led channel 7 */
-//#define LED_CH_8                          	0x0080       /*!<Led channel 8 */
-//#define LED_CH_9                          	0x0100       /*!<Led channel 9 */
-//#define LED_CH_10                         	0x0200       /*!<Led channel 10 */
-//#define LED_CH_11                        	0x0400       /*!<Led not used */
-//#define LED_CH_12                        	0x0800       /*!<Led not used */
 
 #define LED_CLR_ALL_MASK					0x0000U
-#define LED_SET_ALL_MASK					0x0FFCU
-#define LED_SERIES_MASK						( 0x0008U + 0x0040U + 0x0080U + 0x0100U )
-#define LED_MODE_MASK						( 0x0200U + 0x0400U )
+#define LED_ALL_MASK					0x03FFU
 
 #define TLC5971_NUM_LED 					4			// number of led's connected to the single TLC5971 drivers on the keyboard
 #define TLC5971_NUM_DRIVERS					3			// number of TLC5971 drivers on the keyboard
@@ -40,20 +25,8 @@
 #define TLC5971_PAC_LEN						28			// length of the message sent to the single TLC5971 using SPI
 #define TLC5971_ALL_PAC_LEN					84			// length of the message sent to the three TLC5971 using SPI (three drivers on the keyboard)
 
-//#define TLC5971_SET_LED(led)				TLC5971_set_led(led)
-//#define TLC5971_CLR_LED(led)				TLC5971_clr_led(led)
-//
-//#define TLC5971_SET_LED_ALL()				TLC5971_set_led_all()
-//#define TLC5971_CLR_LED_ALL()				TLC5971_clr_led_all()
-//
-//#define TLC5971_SEND_PACKET(spix)			TLC5971_send_packet(spix)
+#define TLC5971_ADC_RES						1023		// resolution ADC to calculate luminosity
 
-
-//#define TLC5971_SPI_CLK_L					(GPIOA->ODR &= ~GPIO_ODR_ODR_5)
-//#define TLC5971_SPI_CLK_H					(GPIOA->ODR |= GPIO_ODR_ODR_5)
-//
-//#define TLC5971_SPI_D_L					(GPIOA->ODR &= ~GPIO_ODR_ODR_7)
-//#define TLC5971_SPI_D_H					(GPIOA->ODR |= GPIO_ODR_ODR_7)
 
 /* Typedef -------------------------------------------------------------------*/
 typedef enum {

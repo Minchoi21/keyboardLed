@@ -35,7 +35,7 @@ static st_SPI_DMA_settings_t st_spi3_dma = {DMA1_Stream5, DMA_Channel_0, DMA1_St
 /* Private function prototypes -----------------------------------------------*/
 static st_SPI_DMA_settings_t* SPI_DMA_getSettings(SPI_TypeDef* SPIx);
 
-/* Private functions ---------------------------------------------------------*/
+/* Functions ---------------------------------------------------------*/
 
 void SPI_DMA_init(SPI_TypeDef* SPIx)
 {

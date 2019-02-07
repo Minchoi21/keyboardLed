@@ -20,7 +20,7 @@
 /* Private define ------------------------------------------------------------*/
 #define SYS_TICK_DELAY_1 1000
 #define SYS_TICK_DELAY_2 500
-#define SYS_TICK_DELAY_3 20
+#define SYS_TICK_DELAY_3 10
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/

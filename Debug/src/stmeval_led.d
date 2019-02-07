@@ -10,13 +10,15 @@ src/stmeval_led.o: ../src/stmeval_led.c \
  C:/Users/Daniel/workspace/keyboardLed/CMSIS/device/system_stm32f4xx.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/exti.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/spi.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/tlc5971.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/def.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/def.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/spi.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/dma.h \
  C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h \
- C:/Users/Daniel/workspace/keyboardLed/inc/max7301.h
+ C:/Users/Daniel/workspace/keyboardLed/inc/tlc5971.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/max7301.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/adc_dma.h \
+ C:/Users/Daniel/workspace/keyboardLed/inc/adc.h
 
 C:/Users/Daniel/workspace/keyboardLed/inc/stmeval_led.h:
 
@@ -40,16 +42,20 @@ C:/Users/Daniel/workspace/keyboardLed/inc/gpio.h:
 
 C:/Users/Daniel/workspace/keyboardLed/inc/exti.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/spi.h:
-
-C:/Users/Daniel/workspace/keyboardLed/inc/tlc5971.h:
+C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h:
 
 C:/Users/Daniel/workspace/keyboardLed/inc/def.h:
 
-C:/Users/Daniel/workspace/keyboardLed/inc/spi_dma.h:
+C:/Users/Daniel/workspace/keyboardLed/inc/spi.h:
 
 C:/Users/Daniel/workspace/keyboardLed/inc/dma.h:
 
 C:/Users/Daniel/workspace/keyboardLed/inc/rcc.h:
 
+C:/Users/Daniel/workspace/keyboardLed/inc/tlc5971.h:
+
 C:/Users/Daniel/workspace/keyboardLed/inc/max7301.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/adc_dma.h:
+
+C:/Users/Daniel/workspace/keyboardLed/inc/adc.h:

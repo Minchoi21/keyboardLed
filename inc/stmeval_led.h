@@ -12,9 +12,10 @@
 #include "stm32f4xx.h"
 #include "gpio.h"
 #include "exti.h"
-#include "spi.h"
+#include "spi_dma.h"
 #include "tlc5971.h"
 #include "max7301.h"
+#include "adc_dma.h"
 
 /* Private typedef -----------------------------------------------------------*/
 typedef enum
@@ -50,6 +51,7 @@ typedef enum
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+uint16_t adc_measure[ADC_NUMBER_CHANNELS];
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 /*------------------------------------------------------------------------------

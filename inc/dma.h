@@ -10,9 +10,13 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
+#include "def.h"
 
 /* Typedef -----------------------------------------------------------*/
 
+typedef struct {
+	BOOL adc_dma_tcmpl;
+} st_DMA_Flags_t;
 
 /*!
   * @brief DMA Memory Data Size
@@ -73,6 +77,7 @@ typedef enum DMA_PeripheralDataSize {
 
 /* Macro -------------------------------------------------------------*/
 /* Variables ---------------------------------------------------------*/
+st_DMA_Flags_t st_dma_flags;
 /* Functions ---------------------------------------------------------*/
 /*!
  * @brief  	Clears selected DMA interrupt flag

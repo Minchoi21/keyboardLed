@@ -12,7 +12,7 @@
 #include "stm32f4xx.h"
 
 /* Private typedef -----------------------------------------------------------*/
-/**
+/*!
  * @brief GPIO Mode enumeration
  */
 typedef enum {
@@ -22,7 +22,7 @@ typedef enum {
 	GPIO_Mode_AN	= 0x03  	/*!< GPIO Pin as Analog */
 } GPIO_Mode_t;
 
-/**
+/*!
  * @brief GPIO Output type enumeration
  */
 typedef enum {
@@ -30,7 +30,7 @@ typedef enum {
 	GPIO_OType_OD 	= 0x01  	/*!< GPIO Output Type Open-Drain */
 } GPIO_OType_t;
 
-/**
+/*!
  * @brief  GPIO Speed enumeration
  */
 typedef enum {
@@ -40,7 +40,7 @@ typedef enum {
 	GPIO_Speed_High 	= 0x03    	/*!< GPIO Speed High */
 } GPIO_Speed_t;
 
-/**
+/*!
  * @brief GPIO pull resistors enumeration
  */
 typedef enum {
@@ -49,7 +49,7 @@ typedef enum {
 	GPIO_PuPd_DOWN 		= 0x02    	/*!< Pull down resistor enabled */
 } GPIO_PuPd_t;
 
-/**
+/*!
  * @brief GPIO alternate function enumeration
  */
 typedef enum {
