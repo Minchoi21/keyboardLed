@@ -36,9 +36,13 @@ int main(void)
 	STM_EVAL_initBoard();
 	for(;;)
 	{
+		if(SysTick_time3_flag) {
+			ADC_acquisitionData();
+			ADC_averageFunction();
+		}
 		if(SysTick_time1_flag) {
+			STM_EVAL_ledToggle(GPIOD, GPIO_Pin_13);
 			SysTick_time1_flag = FALSE;
-				STM_EVAL_ledToggle(GPIOD, GPIO_Pin_13);
 		}
 
 		if(SysTick_time3_flag) {
@@ -48,10 +52,11 @@ int main(void)
 
 			if(SysTick_time2_flag) {
 				SysTick_time2_flag = FALSE;
-				if(led >= (TLC5971_ALL_NUM_LED-2)) led = 0x00;
 				led++;
+				if(led >= (TLC5971_ALL_NUM_LED-2)) led = 0x00;
+
 			}
-			TLC5971_setLuminosity(126);
+			TLC5971_setLuminosity(ADC_accessAdcMeasure()->st_avg.tab_avg_val[0]);
 			TLC5971_clrLedAll();
 			TLC5971_setLed(1<<led);
 			TLC5971_setLed(button_keyboard);
@@ -100,9 +105,11 @@ void SysTick_Handler(void){
 	static uint32_t SysTick_time_3 = SYS_TICK_DELAY_3;
 
 
+
 	if(!SysTick_time_1){
 		SysTick_time_1 = SYS_TICK_DELAY_1;
 		SysTick_time1_flag = TRUE;
+		STM_EVAL_ledToggle(GPIOD, GPIO_Pin_14);
 	}
 	if(!SysTick_time_2){
 		SysTick_time_2 = SYS_TICK_DELAY_2;
@@ -112,6 +119,8 @@ void SysTick_Handler(void){
 		SysTick_time_3 = SYS_TICK_DELAY_3;
 		SysTick_time3_flag = TRUE;
 	}
+	SysTick_time3_flag = TRUE; /* 1kHz */
+
 	SysTick_time_1--;
 	SysTick_time_2--;
 	SysTick_time_3--;

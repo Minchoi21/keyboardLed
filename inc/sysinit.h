@@ -20,13 +20,15 @@
 /* Private define ------------------------------------------------------------*/
 #define SYS_TICK_DELAY_1 1000
 #define SYS_TICK_DELAY_2 500
-#define SYS_TICK_DELAY_3 10
+#define SYS_TICK_DELAY_3 20
+#define SYS_TICK_DELAY_4 0
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 BOOL SysTick_time1_flag;
 BOOL SysTick_time2_flag;
 BOOL SysTick_time3_flag;
+BOOL SysTick_time4_flag;
 
 /* Private function prototypes -----------------------------------------------*/
 

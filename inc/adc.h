@@ -37,8 +37,29 @@
 
 /* Define --------------------------------------------------------------------*/
 
+#define V_REFIN_CAL (*(uint16_t*)0x1FFF7A2A)
+#define V_MEASURMENT_CONDITIONS 3300
+#define ADC_RESOLUTION 4095 				//12-bit
+
+#define ADC_QUANTITY_CHANNEL           		2U
+#define ADC_QUANTITY_SAMPLES				11U
 
 /* Typedef -------------------------------------------------------------------*/
+
+typedef struct {
+	uint16_t tab_samples[ADC_QUANTITY_CHANNEL][ADC_QUANTITY_SAMPLES];
+	uint16_t tab_sort_samples[ADC_QUANTITY_CHANNEL][ADC_QUANTITY_SAMPLES];
+	uint16_t tab_avg_val[ADC_QUANTITY_CHANNEL];
+	uint8_t num_samples;
+	BOOL data_ready;
+}st_avg_t;
+
+typedef struct {
+	uint16_t tab_raw_data[ADC_QUANTITY_CHANNEL];
+	st_avg_t st_avg;
+}st_ADC_measure_t;
+
+
 /*!
  * @brief  ADC available channels
  */
@@ -117,5 +138,36 @@ void ADC_init(ADC_TypeDef* ADCx);
  * @return none
  */
 void ADC_startConv(ADC_TypeDef* ADCx);
+
+/*!
+ * @brief	Initializes structure to calculate average value comming from ADC.
+ * @note
+ * @param  	none
+ * @return 	none.
+ */
+void ADC_initAverageStructure(void);
+
+/*!
+ * @brief	Get data from ADC channels and placing them in the median counting table.
+ * @note
+ * @param  	none
+ * @return 	none.
+ */
+void ADC_acquisitionData(void);
+
+/*!
+ * @brief	Average data received from ADC channels
+ * @note
+ * @param  	none
+ * @return 	none.
+ */
+void ADC_averageFunction(void);
+
+/*!
+ * @brief  Get access to structure with ADC measures.
+ * @param  none
+ * @return Pointer to structure with measures.
+ */
+st_ADC_measure_t* ADC_accessAdcMeasure(void);
 
 #endif /* ADC_H_ */

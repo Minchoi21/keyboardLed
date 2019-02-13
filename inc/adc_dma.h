@@ -15,13 +15,6 @@
 #include "dma.h"
 
 /* Define --------------------------------------------------------------------*/
-#define V_REFIN_CAL (*(uint16_t*)0x1FFF7A2A)
-#define V_MEASURMENT_CONDITIONS 3300
-#define ADC_RESOLUTION 4095 				//12-bit
-
-#define ADC_NUMBER_CHANNELS           2U //
-#define ADC_NUMBER_REF_CHANNEL        1U
-
 /* Typedef -------------------------------------------------------------------*/
 /* Macro ---------------------------------------------------------------------*/
 /* Variables -----------------------------------------------------------------*/

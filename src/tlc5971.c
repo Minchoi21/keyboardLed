@@ -82,7 +82,7 @@ void TLC5971_clrLedAll( void )
 //------------------------------------------------------------------------------
 void TLC5971_setLuminosity( uint16_t lum )
 {
-	tlc5971_drv.luminosity = (uint16_t)(lum*(65535/1023)); 	// calculate luminosity
+	tlc5971_drv.luminosity = (uint16_t)(lum*(65535/4095)); 	// calculate luminosity
 }
 
 //------------------------------------------------------------------------------
@@ -104,10 +104,10 @@ static inline void TLC5971_setPackageValue(void)
 {
 	uint8_t pac_num, led_num;
 
-	for(uint8_t i = 0; i < TLC5971_ALL_NUM_LED; i++ ) {
+	for(uint8_t i = 1; i <= TLC5971_ALL_NUM_LED; i++ ) {
 		pac_num = (uint8_t)((TLC5971_ALL_NUM_LED - i) / TLC5971_NUM_LED);
 		led_num = (uint8_t)((TLC5971_ALL_NUM_LED - i) % TLC5971_NUM_LED);
-		if(tlc5971_drv.LDS & (0x01 << i)) {
+		if(tlc5971_drv.LDS & (0x01 << (i-1))) {
 			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_red.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);
 			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_red.arr[1] = (uint8_t)(tlc5971_drv.luminosity & 0xff);
 			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_green.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);

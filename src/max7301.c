@@ -68,5 +68,5 @@ uint16_t MAX7301_readData(void)
 		buffer_in |= ( (MAX7301_createPackage(0x00, 0x00)) & 0x7E);
 	#endif /* STM32F446xx */
 
-	return (0x3FF & ~(buffer_in >> 1));
+	return (0x3FF & ~((buffer_in >> 1)));
 }

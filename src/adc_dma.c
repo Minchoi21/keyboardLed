@@ -38,10 +38,11 @@ void ADC_DMA_init(ADC_TypeDef* ADCx, uint16_t* RX_Buffer)
 	DMA2_Stream0->CR |= (1U << DMA_SxCR_TEIE_Pos);                        //!< Transfer error interrupt enable
 	DMA2_Stream0->CR |= (1U << DMA_SxCR_DMEIE_Pos);                       //!< Transfer direction mode error interrupt enable
 
-	DMA2_Stream0->NDTR = ADC_NUMBER_CHANNELS;                             //!< Number of data items to be transferred
+	DMA2_Stream0->NDTR = ADC_QUANTITY_CHANNEL;                             //!< Number of data items to be transferred
 	DMA2_Stream0->PAR = (uint32_t)(&ADCx->DR);                            //!< Peripheral address register
 	DMA2_Stream0->M0AR = (uint32_t)RX_Buffer;           				  //!< Memory address register
 	DMA2_Stream0->CR |= (DMA_SxCR_EN);                                    //!< Stream Enable
 
 	ADCx->CR2 |= ADC_CR2_ADON;				//!< Enable ADC
 }
+

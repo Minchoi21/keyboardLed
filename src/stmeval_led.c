@@ -102,8 +102,10 @@ void STM_EVAL_initBoard(void)
 	MAX7301_init();
 
 /* ADC1 */
-	ADC_DMA_init(ADC1, adc_measure);
+	ADC_DMA_init(ADC1, ADC_accessAdcMeasure()->tab_raw_data);
 	ADC_startConv(ADC1);
+	/* Set initial values for st_ADC_measure_t */
+	ADC_initAverageStructure();
 }
 
 ///**
