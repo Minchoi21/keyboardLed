@@ -56,7 +56,7 @@ int main(void)
 				if(led >= (TLC5971_ALL_NUM_LED-2)) led = 0x00;
 
 			}
-			TLC5971_setLuminosity(ADC_accessAdcMeasure()->st_avg.tab_avg_val[0]);
+			TLC5971_setLuminosity(ADC_accessAdcMeasure()->st_avg.avg_val[0]);
 			TLC5971_clrLedAll();
 			TLC5971_setLed(1<<led);
 			TLC5971_setLed(button_keyboard);

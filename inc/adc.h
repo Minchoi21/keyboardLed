@@ -43,19 +43,21 @@
 
 #define ADC_QUANTITY_CHANNEL           		2U
 #define ADC_QUANTITY_SAMPLES				11U
+#define HYST_HIGH_LEVEL						4U
+#define HYST_LOW_LEVEL						3U
 
 /* Typedef -------------------------------------------------------------------*/
 
 typedef struct {
-	uint16_t tab_samples[ADC_QUANTITY_CHANNEL][ADC_QUANTITY_SAMPLES];
-	uint16_t tab_sort_samples[ADC_QUANTITY_CHANNEL][ADC_QUANTITY_SAMPLES];
-	uint16_t tab_avg_val[ADC_QUANTITY_CHANNEL];
+	uint16_t samples[ADC_QUANTITY_CHANNEL][ADC_QUANTITY_SAMPLES];
+	uint16_t samples_sort[ADC_QUANTITY_CHANNEL][ADC_QUANTITY_SAMPLES];
+	uint16_t avg_val[ADC_QUANTITY_CHANNEL];
 	uint8_t num_samples;
 	BOOL data_ready;
 }st_avg_t;
 
 typedef struct {
-	uint16_t tab_raw_data[ADC_QUANTITY_CHANNEL];
+	uint16_t raw_data[ADC_QUANTITY_CHANNEL];
 	st_avg_t st_avg;
 }st_ADC_measure_t;
 

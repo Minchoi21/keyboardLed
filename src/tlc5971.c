@@ -82,7 +82,7 @@ void TLC5971_clrLedAll( void )
 //------------------------------------------------------------------------------
 void TLC5971_setLuminosity( uint16_t lum )
 {
-	tlc5971_drv.luminosity = (uint16_t)(lum*(65535/4095)); 	// calculate luminosity
+	tlc5971_drv.luminosity = (uint16_t)(lum*(65535/511)); 	// calculate luminosity
 }
 
 //------------------------------------------------------------------------------
