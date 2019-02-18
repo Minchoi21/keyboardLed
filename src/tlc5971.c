@@ -34,6 +34,7 @@ static inline void TLC5971_setPackageValue(void) ;
 void TLC5971_init(void)
 {
 	tlc5971_drv.luminosity = 0x0000;
+	TLC5971_resetColorLeds();
 
 	for(uint8_t num = 0; num < TLC5971_NUM_DRIVERS; num++)	{
 		tlc5971_drv.PAC[num].CF[0] = 0x96;
@@ -83,6 +84,13 @@ void TLC5971_clrLedAll( void )
 void TLC5971_setLuminosity( uint16_t lum )
 {
 	tlc5971_drv.luminosity = (uint16_t)(lum*(65535/511)); 	// calculate luminosity
+}
+
+//------------------------------------------------------------------------------
+void TLC5971_resetColorLeds()
+{
+	for(uint8_t i = 0; i < TLC5971_ALL_NUM_LED; i++)
+		tlc5971_drv.color[i] = C_NONE;
 }
 
 //------------------------------------------------------------------------------

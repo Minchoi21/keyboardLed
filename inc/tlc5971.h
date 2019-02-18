@@ -80,6 +80,17 @@ typedef enum {
 	LED_CH_1 =	0x0800U        /*! Led channel 1 */
 } en_TLC5971_led_t;
 
+typedef enum {
+	C_NONE,
+	C_WHITE,			/*! R+G+B */
+	C_YELLOW,			/*! R+G */
+	C_CYAN,			/*! G+B */
+	C_MAGENTA,		/*! R+B */
+	C_RED,
+	C_GREEN,
+	C_BLUE
+}en_TLC5971_colors_t;
+
 /* 224-Bit Data Packet Configuration */
 // sends the LEDs data
 // CMD - *Command: 6-bits (0x25 = 100101b is sent, to enable copying of the 218 bit data in the 224-bit register to the 218-bit data latch
@@ -111,18 +122,17 @@ typedef struct TLC5971_rgbLed {
 }st_TLC5971_rgbLed_t;
 
 typedef struct TLC5971_pac {
-uint8_t CF[4];					// 32 bits driver configuration
+uint8_t CF[4];									// 32 bits driver configuration
 st_TLC5971_rgbLed_t rgb_led[TLC5971_NUM_LED];   // TLC5971_NUM_LED -> number of led's on single drivers
 }st_tlc5971_pac_t;
 
 
 typedef struct TLC5971 {
-st_tlc5971_pac_t PAC[TLC5971_NUM_DRIVERS];	// LED data packet configuration
-uint16_t LDS;			// LED data status
-uint16_t luminosity;	// LED brightness
+st_tlc5971_pac_t PAC[TLC5971_NUM_DRIVERS];			// LED data packet configuration
+en_TLC5971_colors_t color[TLC5971_ALL_NUM_LED];		// LED colors
+uint16_t LDS;										// LED data status
+uint16_t luminosity;								// LED brightness
 } st_tlc5971_t;
-
-
 
 
 /* Macro ---------------------------------------------------------------------*/
@@ -183,6 +193,15 @@ void TLC5971_clrLedAll( void );
  * @return 	none
  */
 void TLC5971_setLuminosity( uint16_t lum );
+
+/*!
+ * @brief	Reset color for all LED's. RGB are set as C_NONE.
+ * @note
+ * @warning none
+ * @param  	none
+ * @return 	none
+ */
+void TLC5971_resetColorLeds();
 
 /*!
  * @brief	Send data package to the all TCL5971 drivers by SPIx using DMA
