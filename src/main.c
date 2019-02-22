@@ -30,10 +30,17 @@ void Delay (uint32_t nCount);
 
 int main(void)
 {
-	static uint8_t led;
-	static uint16_t button_keyboard;
+	static uint8_t index;
+	static uint16_t button_keyboard, nr_led;
 	SYS_init();
 	STM_EVAL_initBoard();
+
+	/* Temporaty set color led. To delete later. */
+	for(uint8_t j = 0; j<TLC5971_ALL_NUM_LED; j++)
+	{
+		TLC5971_setColorLed(C_CYAN, j);
+	}
+
 	for(;;)
 	{
 		if(SysTick_time3_flag) {
@@ -52,13 +59,14 @@ int main(void)
 
 			if(SysTick_time2_flag) {
 				SysTick_time2_flag = FALSE;
-				led++;
-				if(led >= (TLC5971_ALL_NUM_LED-2)) led = 0x00;
 
+				nr_led ^= (1 << index);
+				index++;
+				if(index >= (TLC5971_ALL_NUM_LED-2)) index = 0x00;
 			}
 			TLC5971_setLuminosity(ADC_accessAdcMeasure()->st_avg.avg_val[0]);
 			TLC5971_clrLedAll();
-			TLC5971_setLed(1<<led);
+			TLC5971_setLed(nr_led);
 			TLC5971_setLed(button_keyboard);
 			TLC5971_sendPacket(SPI2);
 		}

@@ -129,10 +129,18 @@ typedef enum {
 /*!
  * @brief  Initializes ADC peripheral with default settings.
  * @param  *ADCx: Pointer to ADC peripheral where you want to enable ADC.
+ * @param  channel: channel for ADCx. This parameter can be a value of @ref en_ADC_Channel_t enumeration.
  * @return none
  */
-void ADC_init(ADC_TypeDef* ADCx);
+void ADC_init(ADC_TypeDef* ADCx, en_ADC_Channel_t channel);
 
+/*!
+ * @brief  Initializes ADC channel.
+ * @param  *ADCx: Pointer to ADC peripheral where you want to enable ADC.
+ * @param  channel: channel for ADCx. This parameter can be a value of @ref en_ADC_Channel_t enumeration.
+ * @return none
+ */
+void ADC_initChannel(ADC_TypeDef* ADCx, en_ADC_Channel_t channel);
 
 /*!
  * @brief  Start Conversion for given ADC.

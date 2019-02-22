@@ -19,7 +19,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define SYS_TICK_DELAY_1 1000
-#define SYS_TICK_DELAY_2 500
+#define SYS_TICK_DELAY_2 300
 #define SYS_TICK_DELAY_3 20
 #define SYS_TICK_DELAY_4 0
 

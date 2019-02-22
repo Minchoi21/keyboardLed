@@ -17,10 +17,10 @@
 /* Function prototypes -----------------------------------------------*/
 /* Functions ---------------------------------------------------------*/
 
-void ADC_DMA_init(ADC_TypeDef* ADCx, uint16_t* RX_Buffer)
+void ADC_DMA_init(ADC_TypeDef* ADCx, en_ADC_Channel_t channel, uint16_t* RX_Buffer)
 {
-	/* Initializes the given ADC */
-	ADC_init(ADCx);
+	/* Initializes the ADCx with channel */
+	ADC_init(ADCx, channel);
 
 	/* Clear configuration of DMAx Streamx */
 	DMA_deinit(DMA2_Stream0);

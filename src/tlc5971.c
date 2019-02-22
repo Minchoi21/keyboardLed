@@ -14,18 +14,6 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 static st_tlc5971_t tlc5971_drv;
-static uint16_t leds_offset[] = { LED_CH_1,
-								LED_CH_2,
-								LED_CH_3,
-								LED_CH_4,
-								LED_CH_5,
-								LED_CH_6,
-								LED_CH_7,
-								LED_CH_8,
-								LED_CH_9,
-								LED_CH_10,
-								LED_CH_11,
-								LED_CH_12 };
 
 /* Private function prototypes -----------------------------------------------*/
 static inline void TLC5971_setPackageValue(void) ;
@@ -50,7 +38,6 @@ void TLC5971_init(void)
 void TLC5971_setLed( en_TLC5971_led_t led)
 {
 	if(led & LED_ALL_MASK) {
-
 			tlc5971_drv.LDS |= led;
 	}
 	TLC5971_setPackageValue();
@@ -62,6 +49,15 @@ void TLC5971_clrLed( en_TLC5971_led_t led)
 
 	if(led & LED_ALL_MASK) {
 		tlc5971_drv.LDS &= (~led);
+	}
+	TLC5971_setPackageValue();
+}
+
+
+void TLC5971_toggleLed( en_TLC5971_led_t led )
+{
+	if(led & LED_ALL_MASK) {
+			tlc5971_drv.LDS ^= led;
 	}
 	TLC5971_setPackageValue();
 }
@@ -89,8 +85,20 @@ void TLC5971_setLuminosity( uint16_t lum )
 //------------------------------------------------------------------------------
 void TLC5971_resetColorLeds()
 {
-	for(uint8_t i = 0; i < TLC5971_ALL_NUM_LED; i++)
-		tlc5971_drv.color[i] = C_NONE;
+	uint8_t* tmp = (uint8_t*)&tlc5971_drv.color;
+	for(uint8_t i = 0; i < TLC5971_ALL_NUM_LED; i++) {
+		*(tmp+(i/2)) &= ~(C_WHITE << ((i%2)*0x04));
+		//tlc5971_drv.color |= (st_TLC5971_color_leds_t)(C_NONE << (i*0x04));
+	}
+}
+
+//------------------------------------------------------------------------------
+void TLC5971_setColorLed(en_TLC5971_colors_t color, en_TLC5971_led_offset_t led)
+{
+	uint8_t* tmp = (uint8_t*)&tlc5971_drv.color;
+
+	*(tmp+(led/2)) &= ~(color << ((led%2)*0x04));
+	*(tmp+(led/2)) |= color << ((led%2)*0x04);
 }
 
 //------------------------------------------------------------------------------
@@ -110,18 +118,26 @@ void TLC5971_sendPacket(SPI_TypeDef* SPIx)
 /* Private functions ---------------------------------------------------------*/
 static inline void TLC5971_setPackageValue(void)
 {
+	uint8_t* tmp = (uint8_t*)&tlc5971_drv.color;
 	uint8_t pac_num, led_num;
 
-	for(uint8_t i = 1; i <= TLC5971_ALL_NUM_LED; i++ ) {
+	for(uint8_t i = 1, c = 0; i <= TLC5971_ALL_NUM_LED; i++ , c++) {
 		pac_num = (uint8_t)((TLC5971_ALL_NUM_LED - i) / TLC5971_NUM_LED);
 		led_num = (uint8_t)((TLC5971_ALL_NUM_LED - i) % TLC5971_NUM_LED);
 		if(tlc5971_drv.LDS & (0x01 << (i-1))) {
-			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_red.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);
-			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_red.arr[1] = (uint8_t)(tlc5971_drv.luminosity & 0xff);
-			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_green.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);
-			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_green.arr[1] = (uint8_t)(tlc5971_drv.luminosity & 0xff);
-			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_blue.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);
-			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_blue.arr[1] = (uint8_t)(tlc5971_drv.luminosity & 0xff);
+			uint8_t mask_color = (*(tmp+(c/2)) >>  ((c%2)*0x04));
+			if(	mask_color & 0x04U ) {
+				tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_red.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);
+				tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_red.arr[1] = (uint8_t)(tlc5971_drv.luminosity & 0xff);
+			}
+			if(	mask_color & 0x02U ) {
+				tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_green.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);
+				tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_green.arr[1] = (uint8_t)(tlc5971_drv.luminosity & 0xff);
+			}
+			if(	mask_color & 0x01U ) {
+				tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_blue.arr[0] = (uint8_t)(tlc5971_drv.luminosity >> 8);
+				tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_blue.arr[1] = (uint8_t)(tlc5971_drv.luminosity & 0xff);
+			}
 		}
 		else {
 			tlc5971_drv.PAC[pac_num].rgb_led[led_num].GS_red.val = 0x0000;
