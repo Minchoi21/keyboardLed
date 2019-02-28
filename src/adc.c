@@ -51,14 +51,12 @@ void ADC_init(ADC_TypeDef* ADCx, en_ADC_Channel_t channel)
 		/* Enable ADC3 clock */
 		RCC_ADC3_CLK_ENABLE;
 	}
-	/* Enable DMA2 Clock for ADC */
-	RCC_DMA2_CLK_ENABLE;
 
 	/* Configure GPIO for ADC Channel */
 	ADC_initChannel(ADCx, channel);
 
-	ADCx->CR2 &= ~ADC_CR2_ADON;							//!< Disable ADCx
-	ADCx->CR1 |= (ADC_RESOLUTION_12b << ADC_CR1_RES_Pos);				//!< Set 10bit resolution
+	ADCx->CR2 &= ~ADC_CR2_ADON;									//!< Disable ADCx
+	ADCx->CR1 |= (ADC_RESOLUTION_12b << ADC_CR1_RES_Pos);		//!< Set 10bit resolution
 
 	/* Interrupts Configure */
 	ADCx->CR1 |= (1U << ADC_CR1_OVRIE_Pos);				//!< Enable overrun interrupt

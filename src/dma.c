@@ -60,7 +60,7 @@ void DMA_init(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t channel, en_DMA_MemoryD
 	/* Clear peripheral and memory data size fields */
 	DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_PSIZE | (uint32_t)DMA_SxCR_MSIZE);
 
-	/* Set DMA options for TX Stream */
+	/* Set channel for DMA Stream */
 	DMAy_Streamx->CR |= channel;
 
 	/* Set DMA peripheral and memory data size */
